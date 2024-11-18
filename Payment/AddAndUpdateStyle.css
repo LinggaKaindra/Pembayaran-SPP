@@ -1,0 +1,9 @@
+body{
+    background-image: url("paisley.png");
+    font-family: sans-serif;
+    overflow: hidden;
+    user-select: none;
+  }
+table, td {
+    border: 0px;
+  }
