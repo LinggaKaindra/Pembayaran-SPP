@@ -13,7 +13,7 @@
   <center><br><br><br>
 
 
-    <form action="prosestambahsiswa.php" method="post">
+    <form action="prosestambahsiswa.php" method="post"class="InputColumn">
 
       <table border="2" cellpadding="10" cellspacing="0">
       <tr>
