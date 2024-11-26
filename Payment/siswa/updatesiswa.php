@@ -17,14 +17,20 @@ while ($row = mysqli_fetch_assoc($hasil)) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../AddAndUpdateStyle.css">
     <title>Form Update Data Siswa</title>
   </head>
 
   <body>
+  <nav>
+    <ul>
+      <li><a href="siswa.php">Kembali ke Siswa</a></li>
+    </ul>
+</nav>
     <center><br><br><br>
 
 
-      <form action="prosesupdatesiswa.php" method="post">
+      <form action="prosesupdatesiswa.php" method="post" class="InputColumn">
 
         <table border="2" cellpadding="10" cellspacing="0">
           <tr>
@@ -46,17 +52,8 @@ while ($row = mysqli_fetch_assoc($hasil)) {
             <td>angkatan</td>
             <td><input type="text" name="angkatan" value="<?php echo $row['angkatan']; ?>"></td>
           </tr>
-          <tr>
-            <td>
-              <button onclick="location.href='siswa.php'" type ="button">Batal</button>
-            </td>
-            <td>
-              <button type="submit" style="float: right;">simpan</button>
-            </td>
-          </tr>
-
         </table>
-
+        <input class="SubmitButton" type="submit" value="Simpan">
       </form>
 
     </center>
