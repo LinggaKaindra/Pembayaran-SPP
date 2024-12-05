@@ -1,0 +1,61 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+}
+body{
+    background-image: url("White-Abstract-Computer-Wallpaper.jpg");
+    background-size: cover;
+    font-family: "Poppins";
+    overflow: hidden;
+    user-select: none;
+  }
+  .InputColumn td input{
+    caret-color: blue;
+    outline: none;
+    transition: all 0.3s ease;
+    border: 1px solid #bfbfbf;
+  }
+  form .InputColumn td input:focus{
+    border-color: blue;
+  }
+table, td {
+    border: 0px;
+  }
+nav{
+    height: 70px;
+    background: #5372F0;
+    box-shadow: 0 3px 15px rgba(0,0,0,.4);
+  }
+  nav ul{
+    text-align: center;
+  }
+  nav ul li{
+    display: inline-block;
+  }
+  nav ul li a{
+    color: white;
+    display: block;
+    /* padding: 0 15px; */
+    line-height: 70px;
+    font-size: 20px;
+    background: #5372F0;
+    transition: .5s;
+    text-decoration: none;
+  }
+  .SubmitButton{
+    height: 35px;
+    width: 20%;
+    margin-top: 10px;
+    display: flex;
+    background: #5372F0;
+    border-color: #5372F0;
+    border: 1px solid #bfbfbf;
+    border-radius: 5px;
+    /* border-bottom: 2px solid rgba(0,0,0,0.1); */
+    outline: none;
+    transition: all 0.3s ease;
+  }
+  .SubmitButton:hover{
+    background: #3d5ee3;
+  }
