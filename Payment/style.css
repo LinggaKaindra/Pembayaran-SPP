@@ -1,21 +1,22 @@
-
-table, th, td {
-    border: 1px solid black;
-  }
-  table, th, td {
-   text-align: center;
-  }
-  *{
+*{
     margin: 0;
     padding: 0;
     list-style: none;
     text-decoration: none;
   }
   body{
-    background-image: url("paisley.png");
-    font-family: sans-serif;
+    background-image: url("White-Abstract-Computer-Wallpaper.jpg");
+    background-size: cover ;
+    font-family: helvetica;
     overflow: hidden;
     user-select: none;
+  }
+  nav .logo{
+    color: white;
+    font-size: 33px;
+    font-weight: bold;
+    line-height: 70px;
+    padding-left: 110px;
   }
   nav{
     height: 70px;
@@ -23,7 +24,8 @@ table, th, td {
     box-shadow: 0 3px 15px rgba(0,0,0,.4);
   }
   nav ul{
-    text-align: center;
+    float: right;
+    margin-right: 30px;
   }
   nav ul li{
     display: inline-block;
@@ -34,44 +36,10 @@ table, th, td {
     padding: 0 15px;
     line-height: 70px;
     font-size: 20px;
-    background: #5372F0;
-    transition: .5s;
   }
   nav ul li a:hover,
   nav ul li a.active{
     color: #23dbdb;
+    transition: .5s;
   }
-  nav ul ul{
-    position: absolute;
-    top: 85px;
-    border-top: 3px solid #23dbdb;
-    opacity: 0;
-    visibility: hidden;
-  }
-  nav ul li:hover > ul{
-    top: 70px;
-    opacity: 1;
-    visibility: visible;
-    transition: .3s linear;
-  }
-  nav ul ul li{
-    width: 150px;
-    display: list-item;
-    position: relative;
-    background: #5372F0;
-    border-top: none;
-  }
-  nav ul ul li a{
-    line-height: 50px;
-  }
-  nav ul ul ul{
-    border-top: none;
-  }
-  nav ul ul ul li{
-    position: relative;
-    top: -70px;
-    left: 150px;
-  }
-  nav ul ul li a i{
-    margin-left: 45px;
-  }
+  
