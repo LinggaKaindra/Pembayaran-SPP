@@ -17,15 +17,15 @@ session_start();
 <center>
 <nav>
     <ul>
-      <li><a href="../index.php">Back to Index</a></li>
+      <li><a href="../index.php">Kembali ke Index</a></li>
     </ul>
     </nav>
     <br>
-<table border="0">
+<table border="0" class="SearchColumn">
         <form action="" method="GET">
             <tr>
                 <td><input type="text" name="nis" list="NIS" placeholder="Cari Nis">
-                    <datalist id="NIS">
+                    <datalist>
                         <?php
                         $query = "SELECT * FROM tb_siswa";
                         $result = mysqli_query($koneksi, $query);
@@ -35,12 +35,12 @@ session_start();
                         <?php } ?>
                     </datalist>
                 </td>
-                <td><button> Cari  </button></td>
+                <td><button>Cari</button></td>
             </tr>
         </form>
     </table><br>
 
-    <table border="0">
+    <table border="0"class="SearchColumn">
         <?php
         if (isset($_GET['nis'])) {
             $nis = $_GET['nis'];
@@ -51,39 +51,40 @@ session_start();
         ?>
 
         <form action="prosespembayaran.php" method="post">
+            <table class="SearchColumn">
             <tr>
-                <th style="float:left">NIS</th>
-                <th><input type="text" readonly name="nis" value="<?= $data['nis']?>"></th>
+                <td style="float:left">NIS</td>
+                <td>: <input type="text" readonly name="nis" value="<?= $data['nis']?>"></td>
             </tr>
             <tr>
-                <th style="float:left">Nama Siswa</th>
-                <th><input type="text" readonly name="nama_siswa" value="<?= $data['nama_siswa']?>"></th>
+                <td style="float:left">Nama Siswa</td>
+                <td>: <input type="text" readonly name="nama_siswa" value="<?= $data['nama_siswa']?>"></td>
             </tr>
             <tr>
-                <th style="float:left">Nama Petugas</th>
-                <th><input type="text" readonly name="nama_petugas" value="<?php echo $_SESSION['username']; ?>"></th>
+                <td style="float:left">Nama Petugas</td>
+                <td>: <input type="text" readonly name="nama_petugas" value="<?php echo $_SESSION['username']; ?>"></td>
             </tr>
             <tr>
-                <th style="float:left">Waktu Pembayaran</th>
-                <th><input type="text" readonly name="waktu_pembayaran" value="<?= date("d-m-Y")?>"></th>
+                <td style="float:left">Waktu Pembayaran</td>
+                <td>: <input type="text" readonly name="waktu_pembayaran" value="<?= date("d-m-Y")?>"></td>
             </tr>
             <tr>
-                <th style="float:left">Nominal Bayar</th>
+                <td style="float:left">Nominal Bayar</td>
                 <?php
                 $angkatan = $data['angkatan'];
                 $queryspp = mysqli_query($koneksi, "SELECT nominal FROM tb_spp WHERE angkatan = $angkatan");
                 $dataspp = mysqli_fetch_assoc($queryspp);
                 ?>
                 <input type="text" hidden name="angkatan" value="<?= $angkatan?>">
-                <th><input type="text" readonly name="nominal_bayar" value="<?= $dataspp['nominal']?>"></th>
+                <td>: <input type="text" readonly name="nominal_bayar" value="<?= $dataspp['nominal']?>"></td>
             </tr>
             <tr>
-                <th style="float:left">Total Bayar</th>
-                <th><input type="text" name="total_bayar" id=""></th>
+                <td style="float:left">Total Bayar</td>
+                <td>: <input type="text" name="total_bayar" id=""></td>
             </tr>
-            <tr>
-                <th><button type="submit">Bayar</button></th>
-            </tr>
+            </table>
+            <br>
+            <input class="SubmitButton" type="submit" value="Bayar">
         </form>
         <?php
         }
