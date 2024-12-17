@@ -5,7 +5,8 @@
     text-decoration: none;
   }
   body{
-    background-image: url("paisley.png");
+    background-image: url("White-Abstract-Computer-Wallpaper.jpg");
+    background-size: cover ;
     font-family: helvetica;
     overflow: hidden;
     user-select: none;
@@ -31,7 +32,7 @@
   }
   nav ul li a{
     color: white;
-    /* display: block; */
+    display: block;
     padding: 0 15px;
     line-height: 70px;
     font-size: 20px;
