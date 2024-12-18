@@ -1,5 +1,6 @@
 <?php 
-
+session_start();
+// var_dump($_SESSION);
 $conn = mysqli_connect("localhost", "root", "", "spp_2");
 
 if (isset($_POST["submit"])) {
@@ -10,6 +11,7 @@ if (isset($_POST["submit"])) {
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
 
+    
     // Periksa apakah username ditemukan
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
@@ -18,10 +20,14 @@ if (isset($_POST["submit"])) {
         if (password_verify($password, $row["password"])) {
             // Cek role untuk redirect
             if ($row["role"] == 'admin') {
+                $_SESSION['role'] = $row["role"];
+                $_SESSION['loggedin'] = true;
                 header("Location: ../admin/index.php");
                 exit;
             } elseif ($row["role"] == 'petugas') {
-                header("Location: petugas.php");
+                $_SESSION['role'] = $row["role"];
+                $_SESSION['loggedin'] = true;
+                header("Location: ../admin/index.php");
                 exit;
             }
         } else {

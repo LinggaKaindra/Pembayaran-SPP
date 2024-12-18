@@ -48,7 +48,6 @@
             <td>Payment Method</td>
             <td>Payment Date</td>
             <td>Payment Amount</td>
-            <td>Receipt URL</td>
             <td>status</td>
             <td>action</td>
         </tr>
@@ -62,12 +61,8 @@
                 <td><?= $row["method_name"]; ?></td>
                 <td><?= $row["paid_date"]; ?></td>
                 <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
-                <td>
-                    <a href="<?= $row["receipt_url"]; ?>">
-                        <?= $row["receipt_url"]; ?></td>
-                    </a>
                 <td><?= $row["status"]; ?></td>
-                <td><a href="ubahPemb.php?id=<?= $row["paymentId"]; ?>">ubah</a> || <a href="hapusPemb.php?id=<?= $row["paymentId"]; ?>"> Hapus</a></td>
+                <td> <a href="<?= $row["receipt_url"]; ?>">print</a> || <a href="ubahPemb.php?id=<?= $row["paymentId"]; ?>">ubah</a> || <a href="hapusPemb.php?id=<?= $row["paymentId"]; ?>"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

@@ -7,9 +7,6 @@
     <title>pilihan</title>
 </head>
 <body>
-    <?= password_hash('admin', PASSWORD_BCRYPT); ?> <br>
-    <?= password_hash('123', PASSWORD_BCRYPT); ?>
-
     <h1>Lanjutkan sebagai?</h1>
     <p><a href="petugas/index.php">Petugas</a> || <a href="siswa/index.php">Siswa</a></p>
     

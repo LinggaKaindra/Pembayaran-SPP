@@ -101,22 +101,35 @@ function hapusProd($id){
 }
 
 // Pembayaran
-function cariPemb($data){
+function cariPemb($nim) {
     global $conn;
 
-    $nim = htmlspecialchars($data["nim"]);
-    $sql = "SELECT * FROM students WHERE nim = '$nim'";
-    $result = mysqli_query($conn,$sql);
-    $row = mysqli_fetch_assoc($result);
+    // Sanitasi input untuk mencegah SQL Injection
+    $nim = htmlspecialchars($nim);
 
-    var_dump($row);
+    // Query untuk mendapatkan semua student_id yang memiliki NIM sama
+    $sql = "SELECT students.name,students.nim, ukt.id, ukt.amount, ukt.status, academic_years.year, academic_years.semester
+            FROM students
+            INNER JOIN ukt ON students.id = ukt.student_id
+            INNER JOIN academic_years ON academic_years.id = ukt.academic_year_id
+            WHERE students.nim = '$nim'";
 
-    if ($row) {
-        return $row;
-    } else {
-        return false;
+    // Eksekusi query
+    $result = mysqli_query($conn, $sql);
+
+    // Periksa jika query gagal
+    if (!$result) {
+        die("Query Error: " . mysqli_error($conn));
     }
+
+    // Ambil semua hasil sebagai array
+    $rows = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+    // Kembalikan array hasil
+    return $rows;
 }
+
+
 
 function tambahPemb($data){
 
