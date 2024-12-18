@@ -1,10 +1,12 @@
 <?php 
 
+session_start();
+
 $conn = mysqli_connect("localhost", "root", "", "spp_2");
 
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
-    $password = $_POST["password"]; // Password mentah dari form
+    $password = $_POST["password"];
 
     // Ambil pengguna berdasarkan username
     $sql = "SELECT * FROM students WHERE email = '$email'";
@@ -16,8 +18,9 @@ if (isset($_POST["submit"])) {
 
         // Verifikasi password
         if (password_verify($password, $row["password"])) {
-            // Cek role untuk redirect
-            header("Location: a.php?nim=");
+            $_SESSION['loggedin'] = true;
+            $_SESSION['nim'] = $row['nim'];
+            header("Location: pembayaran/index.php");
         } else {
             echo "Password salah!";
         }
@@ -51,7 +54,8 @@ if (isset($_POST["submit"])) {
         <input type="password" name="password" id="password">
         <br>
         <button type="submit" name="submit">Kirim</button>
-        <p><a href="regisSiswa.php">Belum punya akun?</a> || <a href="../index.php">Kembali?</a></p>
+        <!-- <p><a href="regisSiswa.php">Belum punya akun?</a> || <a href="../index.php">Kembali?</a></p> -->
+         <p><a href="../index.php">Kembali?</a></p>
     </form>
 
 </body>

@@ -1,14 +1,21 @@
 <?php
+    session_start();
     require "../../functions.php";
 
-    $id = $_GET['id'];
+    if (!isset($_SESSION["loggedin"])) {
+        header("Location: ../login.php");
+        exit;
+    }
+
+    $nim = $_SESSION['nim'];
+
 
     $payments = query("SELECT 
                     payments.id AS paymentId,
                     payments.paid_date AS paid_date,
                     payments.amount_paid as amount_paid,
                     payments.receipt_url as receipt_url,
-                    payments.status as status,
+                    ukt.status as status,
                     ukt.id AS uktId,
                     payment_methods.name AS method_name,
                     students.*,  -- Menambahkan data dari tabel students
@@ -26,7 +33,7 @@
                     academic_years ON ukt.academic_year_id = academic_years.id  -- Menambahkan join ke tabel academic_years
                 INNER JOIN 
                     programs ON students.program_id = programs.id
-                WHERE payments.id = $id
+                WHERE students.nim = $nim
                 ");
 
 
@@ -43,6 +50,7 @@
 <body>
 
     <h3>Data pembayaran</h3>
+    <a href="cariPemb.php">tambah data pembayaran</a>
 
     
     <table border="2" cellpadding="20" cellspacing="0">
@@ -52,10 +60,9 @@
             <td>Student Name</td>
             <td>Tahun & Semester</td>
             <td>Fakultas</td>
-            <td>Payment Method</td>
-            <td>Payment Date</td>
             <td>Payment Amount</td>
             <td>status</td>
+            <td>action</td>
         </tr>
 
         <?php $i = 1; ?>
@@ -66,10 +73,9 @@
                 <td><?= $row["name"]; ?></td>
                 <td><?= $row["year"] .'-'. $row["semester"] ?></td>
                 <td><?= $row["faculty"]; ?></td>
-                <td><?= $row["method_name"]; ?></td>
-                <td><?= $row["paid_date"]; ?></td>
                 <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
                 <td><?= $row["status"]; ?></td>
+                <td><a href="detailPemb.php?id=<?= $row['paymentId'] ?>">Detail</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

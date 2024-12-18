@@ -7,20 +7,6 @@ if (isset($_POST["submit"])) {
        header("Location: index.php");
    }
 }
-
-    $prodi = query("
-        SELECT pembayaran.id AS id, 
-            pembayaran.prodi_id, 
-            pembayaran.nominal, 
-            pembayaran.tahun_ajaran, 
-            prodi.id AS prodi_id, 
-            prodi.jurusan AS jurusan
-        FROM pembayaran 
-        INNER JOIN prodi ON pembayaran.prodi_id = prodi.id
-        ");
-
-
-
 ?>
 
 

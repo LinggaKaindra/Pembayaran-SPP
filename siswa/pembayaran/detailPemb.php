@@ -1,5 +1,12 @@
 <?php
+
+    session_start();
     require "../../functions.php";
+    
+    if (!isset($_SESSION["loggedin"])) {
+        header("Location: ../login.php");
+        exit;
+    }
 
     $id = $_GET['id'];
 
