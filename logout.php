@@ -1,6 +1,11 @@
 <?php
+// Mulai session
 session_start();
+
+// Hapus semua session
+session_unset();
 session_destroy();
 
-echo "<script>alert('Berhasil Logout');location.href='login/login.php';</script>";
-?>
+// Redirect ke halaman login
+header("Location: index.php");
+exit();
