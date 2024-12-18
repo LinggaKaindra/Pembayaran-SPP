@@ -1,6 +1,8 @@
 <?php
     require "../../functions.php";
 
+    $id = $_GET['id'];
+
     $payments = query("SELECT 
                     payments.id AS paymentId,
                     payments.paid_date AS paid_date,
@@ -10,6 +12,7 @@
                     ukt.id AS uktId,
                     payment_methods.name AS method_name,
                     students.*,  -- Menambahkan data dari tabel students
+                    programs.faculty,
                     academic_years.year, academic_years.semester  -- Menambahkan data dari tabel academic_years
                 FROM 
                     payments 
@@ -21,6 +24,9 @@
                     students ON ukt.student_id = students.id  -- Menambahkan join ke tabel students
                 INNER JOIN 
                     academic_years ON ukt.academic_year_id = academic_years.id  -- Menambahkan join ke tabel academic_years
+                INNER JOIN 
+                    programs ON students.program_id = programs.id
+                WHERE payments.id = $id
                 ");
 
 
@@ -43,26 +49,28 @@
     <table border="2" cellpadding="20" cellspacing="0">
         <tr>
             <td>No.</td>
+            <td>NIM</td>
             <td>Student Name</td>
             <td>Tahun & Semester</td>
+            <td>Fakultas</td>
             <td>Payment Method</td>
             <td>Payment Date</td>
             <td>Payment Amount</td>
             <td>status</td>
-            <td>action</td>
         </tr>
 
         <?php $i = 1; ?>
         <?php foreach( $payments as $row):?>
             <tr>
                 <td><?= $i; ?></td>
+                <td><?= $row["nim"]; ?></td>
                 <td><?= $row["name"]; ?></td>
                 <td><?= $row["year"] .'-'. $row["semester"] ?></td>
+                <td><?= $row["faculty"]; ?></td>
                 <td><?= $row["method_name"]; ?></td>
                 <td><?= $row["paid_date"]; ?></td>
                 <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
                 <td><?= $row["status"]; ?></td>
-                <td> <a href="detailPemb.php?id=<?= $row["paymentId"]; ?>">Detail</a> || <a href="ubahPemb.php?id=<?= $row["paymentId"]; ?>">ubah</a> || <a href="hapusPemb.php?id=<?= $row["paymentId"]; ?>"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>
