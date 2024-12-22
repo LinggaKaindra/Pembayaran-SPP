@@ -42,33 +42,32 @@ if (isset($_POST["submit"])) {
 
 ?>
 
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../LPSstyle.css">
     <title>Login Petugas</title>
 </head>
 <body>
-
-    <h1>Halaman Login Petugas</h1>
-
-    <form action="" method="post">
-        <label for="email">email : </label>
-        <input type="email" name="email" id="email">
-        <br>
-        <label for="password">Password : </label>
-        <input type="password" name="password" id="password">
-        <br>
-
-        <button type="submit" name="submit">Kirim</button>
-        <p><a href="regisPetugas.php">Belum punya akun?</a> || <a href="../index.php">Kembali?</a></p>
-    </form>
-    
+      <div class="wrapper">
+        <header>Halaman Login Petugas</header>
+        <form action="admin/index.php" method="post">
+          <div class="field email">
+            <div class="input-area">
+              <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+          </div>
+          <div class="field password">
+            <div class="input-area">
+              <input type="password" name="password" id="password"placeholder="Password">
+            </div>
+          </div>
+          <input type="submit" name="submit" value="Kirim">
+          <a href="regisPetugas.php">Belum punya akun?</a> || <a href="../index.php">Kembali?</a>
+        </form>
+      </div>
 </body>
 </html>
