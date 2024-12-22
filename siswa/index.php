@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
 <body>
       <div class="wrapper">
         <header>Halaman Login Siswa</header>
-        <form action="admin/index.php" method="post">
+        <form action="" method="post">
           <div class="field email">
             <div class="input-area">
               <input type="email" name="email" id="email" placeholder="Email">
