@@ -11,7 +11,7 @@
     <div class="wrapper">
       <h1>Lanjutkan sebagai?</h1>
       <div class="field officer">
-        <form action="petugas/index.php">
+        <form action="admin/loginPetugas.php">
           <div class="input-area">
             <input type="submit" value="Petugas">
           </div>
