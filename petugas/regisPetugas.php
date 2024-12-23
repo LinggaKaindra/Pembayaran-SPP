@@ -31,12 +31,12 @@ require"../functions.php";
           </div>
           <div class="field officer">
             <div class="input-area">
-              <input type="text" name="namaPetugas"  id="namaPetugas" autocomplete="off" placeholder="Username">
+              <input type="text" name="namaPetugas"  id="namaPetugas" autocomplete="off" placeholder="Nama Petugas">
             </div>
           </div>
           <div class="field email">
             <div class="input-area">
-              <input type="email" name="email" id="email" autocomplete="off" placeholder="Username">
+              <input type="email" name="email" id="email" autocomplete="off" placeholder="Email">
             </div>
           </div>
           <div class="field password">
