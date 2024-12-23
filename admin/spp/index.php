@@ -49,6 +49,8 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+
+    <a href="../index.php">kembali</a>
     
 </body>
 </html>
