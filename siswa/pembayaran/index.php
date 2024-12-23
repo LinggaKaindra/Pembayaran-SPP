@@ -81,6 +81,7 @@
         <?php endforeach; ?>
     </table>
     <!-- akhir siswa -->
+    <a href="../../logout.php">Log Out</a> 
 
     
 </body>
