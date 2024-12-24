@@ -1,0 +1,224 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f6f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container utama */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.container.detail{
+    max-width: 400px;
+}
+
+/* Styling LowerBar */
+.LowerBar {
+    height: 60px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 0 5%;
+    background: whitesmoke;
+    box-shadow: 0 3px 15px rgba(0,0,0,.4);
+}
+
+.LowerBar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.LowerBar ul li {
+    display: inline;
+    margin-left: 15px;
+}
+
+.LowerBar ul li a {
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Container styling */
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 900px;
+    width: 90%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.img {
+    text-align: center;
+}
+
+.profile-img {
+    border-radius: 50%;
+    border: 3px solid #333;
+}
+
+.content {
+    padding-left: 20px;
+}
+
+.content p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+.welcome-text {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #007bff;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f4f4f9;
+}
+
+table tr:hover {
+    background-color: #e9ecef;
+}
+
+table td a {
+    color: #007bff;
+    font-weight: bold;
+}
+
+table td a:hover {
+    color: #0056b3;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .content {
+        padding-left: 0;
+    }
+    .profile-img {
+        margin-bottom: 16px;
+    }
+    table th, table td {
+        padding: 8px;
+    }
+}
+
+/* Heading - Judul Laporan */
+h3 {
+    text-align: center;
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+}
+
+/* Tabel dengan style elegan */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ecf0f1;
+    font-size: 16px;
+    color: #34495e;
+}
+
+table th {
+    background-color: #3498db;
+    color: #fff;
+    font-weight: bold;
+}
+
+table tr:nth-child(even) {
+    background-color: #f4f6f9;
+}
+
+/* Tombol kembali */
+.btn-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 20px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+    background-color: #2980b9;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #7f8c8d;
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    h3 {
+        font-size: 24px;
+    }
+    table th, table td {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+    .btn-back {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

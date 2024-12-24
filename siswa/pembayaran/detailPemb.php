@@ -46,45 +46,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/StyleSiswa.css">
 </head>
 <body>
-
-    <h3>Data pembayaran</h3>
-
-    
-    <table border="2" cellpadding="20" cellspacing="0">
-        <tr>
-            <td>No.</td>
-            <td>NIM</td>
-            <td>Student Name</td>
-            <td>Tahun & Semester</td>
-            <td>Fakultas</td>
-            <td>Payment Method</td>
-            <td>Payment Date</td>
-            <td>Payment Amount</td>
-            <td>status</td>
-        </tr>
-
-        <?php $i = 1; ?>
-        <?php foreach( $payments as $row):?>
-            <tr>
-                <td><?= $i; ?></td>
-                <td><?= $row["nim"]; ?></td>
-                <td><?= $row["name"]; ?></td>
-                <td><?= $row["year"] .'-'. $row["semester"] ?></td>
-                <td><?= $row["faculty"]; ?></td>
-                <td><?= $row["method_name"]; ?></td>
-                <td><?= $row["paid_date"]; ?></td>
-                <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
-                <td><?= $row["status"]; ?></td>
-            </tr>
-        <?php $i++; ?>
-        <?php endforeach; ?>
-    </table>
-    <!-- akhir siswa -->
-
-    <a href="index.php">kembali</a>
-
+    <div class="container detail">
+        <h3>Data Pembayaran</h3>
+        <div class="payment-cards">
+            <?php foreach ($payments as $row): ?>
+                <div class="payment-card">
+                    <p><strong>No:</strong> <?= $row["paymentId"]; ?></p>
+                    <p><strong>NIM:</strong> <?= $row["nim"]; ?></p>
+                    <p><strong>Student Name:</strong> <?= $row["name"]; ?></p>
+                    <p><strong>Tahun & Semester:</strong> <?= $row["year"] . '-' . $row["semester"]; ?></p>
+                    <p><strong>Fakultas:</strong> <?= $row["faculty"]; ?></p>
+                    <p><strong>Payment Method:</strong> <?= $row["method_name"]; ?></p>
+                    <p><strong>Payment Date:</strong> <?= $row["paid_date"]; ?></p>
+                    <p><strong>Payment Amount:</strong> Rp. <?= number_format($row["amount_paid"]); ?></p>
+                    <p><strong>Status:</strong> <?= $row["status"]; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        <a href="index.php" class="btn-back">Kembali</a>
+    </div>
     
 </body>
 </html>
