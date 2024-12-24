@@ -16,33 +16,40 @@ require "../functions.php";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="NavbarStyle.css">
     <title>Document</title>
 </head>
 <body>
-    
-    <h1>Selamat datang Admin</h1>
-    <br><br>
-
+    <div class="UpperBar">
+        <label class="Logo">Selamat datang Admin</label>
+    </div>
     <?php
         if ($_SESSION["role"] === 'admin') {
             echo '
-                <h4><a href="users/index.php">User</a></h4>
-                <h4><a href="students/index.php">Siswa</a></h4>
-                <h4><a href="ukt/index.php">UKT</a></h4>
-                <h4><a href="payments/index.php">Pembayaran</a></h4>
-                <h4><a href="payment_methods/index.php">Metode Pembayaran</a></h4>
-                <h4><a href="programs/index.php">Prodi</a></h4>
-                <h4><a href="academic_years/index.php">Tahun Ajaran</a></h4>
+                <div class="LowerBar">
+                    <ul>
+                        <li><a href="users/index.php">User</a></li>
+                        <li><a href="students/index.php">Siswa</a></li>
+                        <li><a href="ukt/index.php">UKT</a></li>
+                        <li><a href="payments/index.php">SPP</a></li>
+                        <li><a href="payment_methods/index.php">Metode Pembayaran</a></li>
+                        <li><a href="programs/index.php">Prodi</a></li>
+                        <li><a href="academic_years/index.php">Tahun Ajaran</a></li>
+                        <li><a href="../logout.php">Log out</a></li>
+                    </ul>
+                </div>
             ';
         } else {
             echo '
-                <h4><a href="students/index.php">Siswa</a></h4>
-                <h4><a href="payments/index.php">Pembayaran</a></h4>
+                <div class="LowerBar">
+                    <ul>
+                        <li><a href="students/index.php">Siswa</a></li>
+                        <li><a href="payments/index.php">Pembayaran</a></li>
+                        <li><a href="../logout.php">Log out</a></li>
+                    </ul>
+                </div>
             ';
         }
     ?>
-
-    <a href="../logout.php">Log Out</a> 
-
 </body>
 </html>
