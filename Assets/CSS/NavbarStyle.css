@@ -5,6 +5,9 @@
     font-family: "Poppins";
     text-decoration: none;
 }
+body{
+    background-image: url("../IMG/White-Abstract-Computer-Wallpaper.jpg");
+}
 .UpperBar .Logo{
     color: white;
     font-size: 22px;
