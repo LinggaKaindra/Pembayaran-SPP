@@ -38,5 +38,7 @@
     </table>
     <!-- akhir siswa -->
 
+    <a href="../index.php">kembali</a>
+
 </body>
 </html>

@@ -11,6 +11,10 @@
     <div class="wrapper">
       <h1>Lanjutkan sebagai?</h1>
       <div class="field officer">
+<<<<<<< HEAD
+=======
+        <form action="admin/loginPetugas.php">
+>>>>>>> d1d00281ab07224790a56e930b382805e2e48362
           <div class="input-area">
             <a href="petugas/index.php"><input type="submit" value="Petugas"></a>
           </div>
