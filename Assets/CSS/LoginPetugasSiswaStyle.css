@@ -8,7 +8,7 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("White-Abstract-Computer-Wallpaper.jpg");
+  background-image: url("../IMG/White-Abstract-Computer-Wallpaper.jpg");
 }
 .wrapper{
   width: 400px;
