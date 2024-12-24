@@ -11,18 +11,14 @@
     <div class="wrapper">
       <h1>Lanjutkan sebagai?</h1>
       <div class="field officer">
-        <form action="petugas/index.php">
           <div class="input-area">
-            <input type="submit" value="Petugas">
+            <a href="petugas/index.php"><input type="submit" value="Petugas"></a>
           </div>
-        </form>
       </div>
       <div class="field student">
-        <form action="siswa/index.php">
           <div class="input-area">
-            <input type="submit" value="Siswa">
+            <a href="siswa/index.php"><input type="submit" value="Siswa"></a>
           </div>
-        </form>
       </div>
     </div>
 </body>
