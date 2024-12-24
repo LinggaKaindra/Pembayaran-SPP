@@ -35,9 +35,8 @@
                     programs ON students.program_id = programs.id
                 WHERE students.nim = $nim
                 ");
+    $student = query("SELECT students.*, programs.*, students.name as student_name FROM students LEFT JOIN programs on students.program_id = programs.id WHERE nim = $nim")[0];
 
-
-    // var_dump($payments);
 ?>
 
 <!DOCTYPE html>
@@ -46,43 +45,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/StyleSiswa.css">
 </head>
-<body>
-
-    <h3>Data pembayaran</h3>
-    <a href="cariPemb.php">tambah data pembayaran</a>
-
+<body>  
     
-    <table border="2" cellpadding="20" cellspacing="0">
-        <tr>
-            <td>No.</td>
-            <td>NIM</td>
-            <td>Student Name</td>
-            <td>Tahun & Semester</td>
-            <td>Fakultas</td>
-            <td>Payment Amount</td>
-            <td>status</td>
-            <td>action</td>
-        </tr>
+    <div class="LowerBar">
+        <ul>
+            <li><a href="../../logout.php">Log out</a></li>
+        </ul>
+    </div>
 
-        <?php $i = 1; ?>
-        <?php foreach( $payments as $row):?>
-            <tr>
-                <td><?= $i; ?></td>
-                <td><?= $row["nim"]; ?></td>
-                <td><?= $row["name"]; ?></td>
-                <td><?= $row["year"] .'-'. $row["semester"] ?></td>
-                <td><?= $row["faculty"]; ?></td>
-                <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
-                <td><?= $row["status"]; ?></td>
-                <td><a href="detailPemb.php?id=<?= $row['paymentId'] ?>">Detail</a></td>
-            </tr>
-        <?php $i++; ?>
-        <?php endforeach; ?>
-    </table>
-    <!-- akhir siswa -->
-    <a href="../../logout.php">Log Out</a> 
+    <div class="container">
+        <div class="row">
+            <div class="img gap w-40">
+                <img src="../../assets/img/blank-profile.png" alt="Profile Picture" class="profile-img" width="150">
+            </div>
+            <div class="content w-60">
+                <p class="welcome-text">Selamat datang</p>
+                <p>Name : <?= $student['student_name']; ?></p>
+                <p>NIM : <?= $student['nim']; ?></p>
+                <p>Email : <?= $student['email']; ?></p>
+                <p>Fakultas : <?= $student['faculty']; ?></p>
+            </div>
+        </div>
+    </div>
 
+    <div class="container">
+        <div class="row">
+            <h3>Data pembayaran</h3>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>NIM</th>
+                    <th>Student Name</th>
+                    <th>Tahun & Semester</th>
+                    <th>Fakultas</th>
+                    <th>Payment Amount</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+
+                <?php $i = 1; ?>
+                <?php foreach ($payments as $row): ?>
+                    <tr>
+                        <td><?= $i; ?></td>
+                        <td><?= $row["nim"]; ?></td>
+                        <td><?= $row["name"]; ?></td>
+                        <td><?= $row["year"] . '-' . $row["semester"] ?></td>
+                        <td><?= $row["faculty"]; ?></td>
+                        <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
+                        <td><?= $row["status"]; ?></td>
+                        <td><a href="detailPemb.php?id=<?= $row['paymentId'] ?>">Detail</a></td>
+                    </tr>
+                <?php $i++; ?>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
     
 </body>
 </html>
