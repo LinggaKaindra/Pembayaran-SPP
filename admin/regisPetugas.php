@@ -45,7 +45,7 @@ require"../functions.php";
             </div>
           </div>
           <input type="submit" value="Kirim">
-          <a href="index.php">Sudah punya akun?</a>
+          <a href="loginPetugas.php">Sudah punya akun?</a>
         </form>
       </div>
 </body>
