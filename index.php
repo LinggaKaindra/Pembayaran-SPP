@@ -12,7 +12,7 @@
       <h1>Lanjutkan sebagai?</h1>
       <div class="field officer">
           <div class="input-area">
-            <a href="admin/loginpetugas.php"><input type="submit" value="Petugas"></a>
+            <a href="admin/loginPetugas.php"><input type="submit" value="Petugas"></a>
           </div>
       </div>
       <div class="field student">
