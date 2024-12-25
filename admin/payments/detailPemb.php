@@ -34,49 +34,47 @@
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
-    <title>Document</title>
-</head>
-<body>
-    <div class="table-container">
-    <table>
-    <thead>
-            <tr>
-              <th>No.</th>
-              <th>NIM</th>
-              <th>Student Name</th>
-              <th>Tahun & Semester</th>
-              <th>Fakultas</th>
-              <th>Payment Method</th>
-              <th>Payment Date</th>
-              <th>Payment Amount</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-
-        <?php $i = 1; ?>
-        <?php foreach( $payments as $row):?>
-            <tr>
-                <td><?= $i; ?></td>
-                <td><?= $row["nim"]; ?></td>
-                <td><?= $row["name"]; ?></td>
-                <td><?= $row["year"] .'-'. $row["semester"] ?></td>
-                <td><?= $row["faculty"]; ?></td>
-                <td><?= $row["method_name"]; ?></td>
-                <td><?= $row["paid_date"]; ?></td>
-                <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
-                <td><?= $row["status"]; ?></td>
-            </tr>
-        <?php $i++; ?>
-        <?php endforeach; ?>
-    </table>
-    <!-- akhir siswa -->
-
-    
-    </div>
-</body>
-</html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+  </head>
+  <body>
+  
+      <h3>Data pembayaran</h3>
+  
+      
+      <table border="2" cellpadding="20" cellspacing="0">
+          <tr>
+              <td>No.</td>
+              <td>NIM</td>
+              <td>Student Name</td>
+              <td>Tahun & Semester</td>
+              <td>Fakultas</td>
+              <td>Payment Method</td>
+              <td>Payment Date</td>
+              <td>Payment Amount</td>
+              <td>status</td>
+          </tr>
+  
+          <?php $i = 1; ?>
+          <?php foreach( $payments as $row):?>
+              <tr>
+                  <td><?= $i; ?></td>
+                  <td><?= $row["nim"]; ?></td>
+                  <td><?= $row["name"]; ?></td>
+                  <td><?= $row["year"] .'-'. $row["semester"] ?></td>
+                  <td><?= $row["faculty"]; ?></td>
+                  <td><?= $row["method_name"]; ?></td>
+                  <td><?= $row["paid_date"]; ?></td>
+                  <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
+                  <td><?= $row["status"]; ?></td>
+              </tr>
+          <?php $i++; ?>
+          <?php endforeach; ?>
+      </table>
+  
+      
+  </body>
+  </html>
