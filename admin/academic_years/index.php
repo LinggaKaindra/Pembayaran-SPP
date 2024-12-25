@@ -15,8 +15,8 @@
 <body>
     
 
-    <h3>Data Prodi</h3>
-    <a href="tambahAcad.php">tambah data Prodi</a>
+    <h3>Data Tahun Ajaran</h3>
+    <a href="tambahAcad.php">tambah data Tahun Ajaran</a>
 
     <!-- siswa -->
     <table border="2" cellpadding="20" cellspacing="0">
