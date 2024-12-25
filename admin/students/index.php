@@ -13,24 +13,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
     <title>Document</title>
 </head>
 <body>
-
+<center>
+    
   <h3>Data Siswa</h3>
     <a href="tambahSis.php">tambah data siswa</a>
 
     <!-- siswa -->
-    <table border="2" cellpadding="20" cellspacing="0">
+    <div class="table-container">
+    <table cellpadding="20">
+        <thead>
         <tr>
-            <td>No.</td>
-            <td>NIM</td>
-            <td>Nama</td>
-            <td>Email</td>
-            <td>No Telepon</td>
-            <td>Kelas</td>
-            <td>aksi</td>
+            <th>No.</th>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>No Telepon</th>
+            <th>Kelas</th>
+            <th>aksi</th>
         </tr>
+        </thead>
 
         <?php $i = 1; ?>
         <?php foreach( $siswa as $row):?>
@@ -46,8 +51,10 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+    </div>
     
     <a href="../index.php">kembali</a>
     
+</center>
 </body>
 </html>
