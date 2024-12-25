@@ -16,7 +16,6 @@
     <center>
     <h3>Data Pengguna</h3>
     <a href="tambahPeng.php">tambah data pengguna</a>
-    <br>
     
     <!-- <table border="2" cellpadding="20" cellspacing="0"> -->
     <div class="table-container">
