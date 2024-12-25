@@ -18,11 +18,11 @@ if (isset($_POST["submit"])) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Assets/CSS/LoginPetugasSiswaStyle.css">
-    <title>Tambah Data Prodi</title>
+    <title>Tambah Data Tahun Ajaran</title>
 </head>
 <body>
       <div class="wrapper">
-        <header>Halaman Tambah Prodi</header>
+        <header>Halaman Tambah Data Tahun Ajaran</header>
         <form action="" method="post">
           <div class="field semester">
             <div class="select-area">
