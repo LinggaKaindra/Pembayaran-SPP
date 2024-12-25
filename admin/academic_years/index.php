@@ -10,23 +10,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <center>
+        
 
     <h3>Data Tahun Ajaran</h3>
     <a href="tambahAcad.php">tambah data Tahun Ajaran</a>
 
     <!-- siswa -->
-    <table border="2" cellpadding="20" cellspacing="0">
+    <div class="table-container">
+    <table cellpadding="20">
+        <thead>
         <tr>
-            <td>No.</td>
-            <td>Year</td>
-            <td>Semester</td>
-            <td>status</td>
-            <td>Action</td>
+            <th>No.</th>
+            <th>Year</th>
+            <th>Semester</th>
+            <th>status</th>
+            <th>Action</th>
         </tr>
+        </thead>
 
         <?php $i = 1; ?>
         <?php foreach( $academics as $row):?>
@@ -40,9 +45,12 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+    </div>
+    
     <!-- akhir siswa -->
 
     <a href="../index.php">kembali</a>
 
+    </center>
 </body>
 </html>
