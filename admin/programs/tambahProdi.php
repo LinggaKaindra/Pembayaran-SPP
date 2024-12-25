@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
               <input type="text" name="name" id="name" autocomplete="off" placeholder="Nama">
             </div>
           </div>
-          <div class="field program">
+          <div class="field faculty">
             <div class="input-area">
               <input type="text" name="jurusan" id="jurusan" autocomplete="off" placeholder="Jurusan">
             </div>
