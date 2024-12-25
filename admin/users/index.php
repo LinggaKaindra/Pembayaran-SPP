@@ -13,19 +13,23 @@
     <title>Document</title>
 </head>
 <body>
-
+    <center>
     <h3>Data Pengguna</h3>
     <a href="tambahPeng.php">tambah data pengguna</a>
-
+    <br>
     
-    <table border="2" cellpadding="20" cellspacing="0">
+    <!-- <table border="2" cellpadding="20" cellspacing="0"> -->
+    <div class="table-container">
+    <table cellpadding="20">
+        <thead>
         <tr>
-            <td>No.</td>
-            <td>username</td>
-            <td>email</td>
-            <td>role</td>
-            <td>action</td>
+            <th>No.</th>
+            <th>username</th>
+            <th>email</th>
+            <th>role</th>
+            <th>action</th>
         </tr>
+        </thead>
 
         <?php $i = 1; ?>
         <?php foreach( $pengguna as $row):?>
@@ -39,10 +43,12 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+    </div>
     <!-- akhir siswa -->
 
     <a href="../index.php">kembali</a>
 
     
+    </center>
 </body>
 </html>
