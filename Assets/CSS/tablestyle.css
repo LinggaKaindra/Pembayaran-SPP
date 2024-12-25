@@ -4,6 +4,9 @@
   font-family: "Poppins";
 }
 body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-image: url("../IMG/White-Abstract-Computer-Wallpaper.jpg");
 }
 .table-container{
