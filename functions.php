@@ -17,7 +17,9 @@
 
 //  pengguna
 function regisPeng($data){
+    var_dump("halo");return;
     global $conn;
+
 
     // Ambil dan sanitasi input
     $username = htmlspecialchars($data["username"]);
@@ -270,27 +272,16 @@ function ubahPet($data){
 //  petugas
 function regisPetugas($data){
     global $conn;
-    $username = htmlspecialchars($data["username"]);
-    $password = htmlspecialchars($data["password"]);
-    $namaPetugas = htmlspecialchars($data["namaPetugas"]);
     
-    $sql = "INSERT INTO petugas VALUES ('','$username','$password','$namaPetugas','petugas')";
+    $username = htmlspecialchars($data["username"]);
+    $password = password_hash($data["password"], PASSWORD_DEFAULT);
+    $email = htmlspecialchars($data["email"]);
+    
+    $sql = "INSERT INTO users (username, password, email, role) VALUES ('$username', '$password', '$email', 'petugas')";
 
     mysqli_query($conn,$sql);
     return mysqli_affected_rows($conn);
 }
-
-function hapusPet($id){
-    global $conn;
-
-    $id = $_GET["id"];
-    $sql = "DELETE FROM petugas WHERE id_petugas = $id";
-    mysqli_query($conn,$sql);
-    return mysqli_affected_rows($conn);
-
-
-}
-
 
 // siswa
 function regisSiswa($data){

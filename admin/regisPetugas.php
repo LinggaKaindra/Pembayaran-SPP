@@ -1,11 +1,12 @@
 <?php 
 
-require"../functions.php";
+require "../functions.php";
 
+    // var_dump($_POST);
     if (isset($_POST["submit"])) {
-        
-        if(regisPeng($_POST)){
-            header("location: index.php");
+
+        if(regisPetugas($_POST)){
+            header("location: loginPetugas.php");
         }
     }
 
@@ -29,11 +30,6 @@ require"../functions.php";
               <input type="text" name="username"  id="username" autocomplete="off" placeholder="Username">
             </div>
           </div>
-          <div class="field officer">
-            <div class="input-area">
-              <input type="text" name="namaPetugas"  id="namaPetugas" autocomplete="off" placeholder="Nama Petugas">
-            </div>
-          </div>
           <div class="field email">
             <div class="input-area">
               <input type="email" name="email" id="email" autocomplete="off" placeholder="Email">
@@ -44,7 +40,7 @@ require"../functions.php";
               <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
             </div>
           </div>
-          <input type="submit" value="Kirim">
+          <input type="submit" name="submit" value="Kirim">
           <a href="loginPetugas.php">Sudah punya akun?</a>
         </form>
       </div>
