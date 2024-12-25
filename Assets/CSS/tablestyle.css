@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+  box-sizing: border-box;
+  font-family: "Poppins";
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("../IMG/White-Abstract-Computer-Wallpaper.jpg");
+}
+.table-container{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+}
+table{
+    border-collapse: collapse;
+  }
+  tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  thead{
+    background: blue;
+    color: white;
+  }
+  tbody{
+    color: blue;
+    text-align: center;
+  }
