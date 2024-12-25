@@ -3,23 +3,21 @@
 
  $id = $_GET["id"];
 
-//  $siswa = query("SELECT * FROM siswa WHERE id = '$id'")[0];
 
-$programs = query("SELECT * FROM programs");
- $siswa = query("SELECT *
+  $programs = query("SELECT * FROM programs");
+  $siswa = query("SELECT students.*, students.id as studentId, programs.*
                 FROM students
                 LEFT JOIN programs ON students.program_id = programs.id WHERE students.id = '$id'
             ")[0];
 
-if (isset($_POST["submit"])) {
-    
-    if (ubahSiswa($_POST)) {
-        header("location: index.php");
-    }
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
-}
+  if (isset($_POST["submit"])) {
+      
+      if (ubahSiswa($_POST)) {
+          header("location: index.php");
+      }
+  }
+
+  // var_dump($siswa, $id);
 
 ?>
 
@@ -33,10 +31,10 @@ if (isset($_POST["submit"])) {
     <title>Ubah Data Siswa</title>
 </head>
 <body>
-  <input type="hidden" name="id" value="<?= $pengguna[0]["id"]; ?>">
-      <div class="wrapper">
-        <header>Ubah Data Siswa</header>
+  <div class="wrapper">
+    <header>Ubah Data Siswa</header>
         <form action="" method="post">
+          <input type="hidden" name="id" value="<?= $id; ?>">
           <div class="field studentid">
             <div class="input-area">
               <input type="text" name="nim" id="nim" autocomplete="off" value="<?= $siswa["nim"]; ?>">

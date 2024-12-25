@@ -1,7 +1,7 @@
 <?php
     require '../../functions.php';
 
-    $siswa = query("SELECT *
+    $siswa = query("SELECT students.*, students.id as studentId, programs.*
                 FROM students
                 INNER JOIN programs ON students.program_id = programs.id;
             ");
@@ -46,7 +46,7 @@
                 <td><?= $row["email"]; ?></td>
                 <td><?= $row["phone"]; ?></td> 
                 <td><?= $row["faculty"]; ?></td> 
-                <td><a href="ubahSis.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusSis.php?id=<?= $row["id"]; ?>"> Hapus</a></td>
+                <td><a href="ubahSis.php?id=<?= $row["studentId"]; ?>">ubah</a> || <a href="hapusSis.php?id=<?= $row["studentId"]; ?>"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>
