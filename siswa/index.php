@@ -9,7 +9,7 @@ if (isset($_POST["submit"])) {
     $password = $_POST["password"];
 
     // Ambil pengguna berdasarkan username
-    $sql = "SELECT * FROM students WHERE email = '$email'";
+    $sql = "SELECT * FROM students WHERE email = '$email' or nim = '$email'";
     $result = mysqli_query($conn, $sql);
 
     // Periksa apakah username ditemukan
@@ -20,6 +20,7 @@ if (isset($_POST["submit"])) {
         if (password_verify($password, $row["password"])) {
             $_SESSION['loggedin'] = true;
             $_SESSION['nim'] = $row['nim'];
+            $_SESSION['name'] = $row['name'];
             header("Location: pembayaran/index.php");
         } else {
             echo "Password salah!";
@@ -47,7 +48,7 @@ if (isset($_POST["submit"])) {
         <form action="" method="post">
           <div class="field email">
             <div class="input-area">
-              <input type="email" name="email" id="email" placeholder="Email">
+              <input type="text" name="email" id="email" placeholder="Email atau NIM">
             </div>
           </div>
           <div class="field password">
