@@ -13,28 +13,42 @@ if (isset($_POST["submit"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
     <title>Document</title>
 
-    <h1>Halaman Registrasi Pembayaran</h1>
+    
+    
+</head>
+<body>
+<center>
+<h1>Halaman Registrasi Pembayaran</h1>
     <form action="" method="post">
-        <label for="nim">nim : </label>
-        <input type="text" name="nim" id="nim" autocomplete="off">
+        <div class="field idstudent">
+            <div class="input-area">
+            <input type="text" name="nim" id="nim" autocomplete="off" placeholder="Ketikkan NIM">
+            </div>
+        </div>
+        
         <br>
-        <button type="submit" name="submit">Kirim</button>
+        <input type="submit" name="submit" value="Kirim">
+        <!-- <button type="submit" name="submit">Kirim</button> -->
     </form>
 
     <h1>Halaman Pembayaran</h1>
 
     <?php if (!empty($search)): ?>
-    <table border="2" cellpadding="20" cellspacing="0">
+    <div class="table-container">
+    <table cellpadding="20">
+        <thead>
         <tr>
-            <td>No.</td>
-            <td>Student Name</td>
-            <td>Tahun & Semester</td>
-            <td>Payment Amount</td>
-            <td>status</td>
-            <td>action</td>
+            <th>No.</th>
+            <th>Student Name</th>
+            <th>Tahun & Semester</th>
+            <th>Payment Amount</th>
+            <th>status</th>
+            <th>action</th>
         </tr>
+        </thead>
 
         <?php $i = 1; ?>
         <?php foreach( $search as $row):?>
@@ -60,13 +74,11 @@ if (isset($_POST["submit"])) {
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>
-    </table>  
+    </table>
+    </div>  
     <?php else: ?>
     <h2>Mohon ketikan nim </h2>
     <?php endif; ?>  
-    
-</head>
-<body>
-    
+</center>
 </body>
 </html>
