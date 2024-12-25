@@ -10,22 +10,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
     <title>Document</title>
 </head>
 <body>
-    
+    <center>
+        
 
     <h3>Data Prodi</h3>
     <a href="tambahProdi.php">tambah data Prodi</a>
 
     <!-- siswa -->
-    <table border="2" cellpadding="20" cellspacing="0">
+    <div class="table-container">
+    <table cellpadding="20">
+        <thead>
         <tr>
-            <td>No.</td>
-            <td>Nama</td>
-            <td>Jurusan</td>
-            <td>Action</td>
+            <th>No.</th>
+            <th>Nama</th>
+            <th>Jurusan</th>
+            <th>Action</th>
         </tr>
+        </thead>
 
         <?php $i = 1; ?>
         <?php foreach( $prodi as $row):?>
@@ -38,9 +43,12 @@
         <?php $i++; ?>
         <?php endforeach; ?>
     </table>
+    </div>
+    
     <!-- akhir siswa -->
 
     <a href="../index.php">kembali</a>
 
+    </center>
 </body>
 </html>
