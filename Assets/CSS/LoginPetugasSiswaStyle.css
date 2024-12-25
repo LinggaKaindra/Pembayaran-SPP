@@ -95,4 +95,24 @@ a:hover{
   color: red;
   text-decoration: underline;
 }
-
+.table-container{
+  width: 1000px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.1);
+}
+table{
+  border-collapse: collapse;
+}
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+thead{
+  background: blue;
+  color: white;
+}
+tbody{
+  color: blue;
+  text-align: center;
+}
