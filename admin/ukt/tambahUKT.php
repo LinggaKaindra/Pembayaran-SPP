@@ -20,39 +20,48 @@ if (isset($_POST["submit"])) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-    <h1>Halaman Tambah Prodi</h1>
-    <form action="" method="post">
-        <label for="student">student : </label>
-        <select name="student_id" id="student_id">
-            <?php foreach ($student as $row): ?>
-                <option value="<?php echo $row['id']; ?>"><?= $row['nim'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <label for="academic_years">academic_years : </label>
-        <select name="academic_year_id" id="academic_year_id">
-            <?php foreach ($academic_year as $row): ?>
-                <option value="<?php echo $row['id']; ?>"><?= $row['year'] ."- semester ". $row['semester'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-        <label for="amount">amount : </label>
-        <input type="text" name="amount" id="amount" autocomplete="off">
-        <br>
-        <label for="status">status : </label>
-        <select name="status" id="status">
-            <option value="unpaid">unpaid</option>
-            <option value="paid">paid</option>
-        </select>
-        <br>
-        <button type="submit" name="submit">Kirim</button>
-    </form>
-    
+    <link rel="stylesheet" href="../../Assets/CSS/LoginPetugasSiswaStyle.css">
+    <title>Tambah Prodi</title>
 </head>
 <body>
-    
+      <div class="wrapper">
+        <header>Halaman Tambah Prodi</header>
+        <form action="" method="post">
+          <div class="field studentid">
+            <div class="select-area">
+              <select name="student_id" id="student_id">
+                <?php foreach ($student as $row): ?>
+                    <option value="<?php echo $row['id']; ?>"><?= $row['nim'] ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+          <div class="field year">
+            <div class="select-area">
+              <select name="academic_year_id" id="academic_year_id">
+                <?php foreach ($academic_year as $row): ?>
+                    <option value="<?php echo $row['id']; ?>"><?= $row['year'] ."- semester ". $row['semester'] ?></option>
+                <?php endforeach; ?>
+              </select>
+            </div>
+          </div>
+          <div class="field amount">
+            <div class="input-area">
+              <input type="email" name="amount" id="amount" autocomplete="off" placeholder="Amount">
+            </div>
+          </div>
+          <div class="field status">
+            <div class="select-area">
+              <select name="status" id="status">
+                <option value="unpaid">unpaid</option>
+                <option value="paid">paid</option>
+              </select>
+            </div>
+          </div>
+          <input type="submit" value="Kirim">
+        </form>
+      </div>
 </body>
 </html>
