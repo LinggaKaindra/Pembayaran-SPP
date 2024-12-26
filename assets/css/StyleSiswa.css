@@ -208,6 +208,34 @@ footer {
     color: #7f8c8d;
 }
 
+.btn-print {
+    background-color: #4caf50; /* Hijau */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-print:hover {
+    background-color: #45a049; /* Warna hijau sedikit lebih gelap saat hover */
+}
+
+.btn-print:active {
+    background-color: #3e8e41; /* Warna lebih gelap saat ditekan */
+    transform: scale(0.98); /* Efek kecil saat ditekan */
+}
+
+.btn-print:focus {
+    outline: 2px solid #4caf50; /* Border fokus */
+}
+
 /* Responsif */
 @media (max-width: 768px) {
     h3 {
@@ -220,5 +248,15 @@ footer {
     .btn-back {
         font-size: 14px;
         padding: 8px 16px;
+    }
+}
+
+@media print {
+    .btn-print {
+        display: none;
+    }
+
+    .btn-back {
+        display: none;
     }
 }

@@ -66,6 +66,7 @@
                 </div>
             <?php endforeach; ?>
         </div>
+        <button class="btn-print" onclick="window.print()">Print</button>
         <a href="index.php" class="btn-back">Kembali</a>
     </div>
     
