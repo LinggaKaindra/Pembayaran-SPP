@@ -23,10 +23,10 @@ if (isset($_POST["submit"])) {
             $_SESSION['name'] = $row['name'];
             header("Location: pembayaran/index.php");
         } else {
-            echo "Password salah!";
+          echo "<script>alert('Password salah!')</script>";
         }
     } else {
-        echo "Email tidak ditemukan!";
+      echo "<script>alert('Email tidak ditemukan !')</script>";
     }
 }
 
@@ -52,13 +52,15 @@ if (isset($_POST["submit"])) {
             </div>
           </div>
           <div class="field password">
-            <div class="input-area">
-              <input type="password" name="password" id="password"placeholder="Password">
-            </div>
+            <div class="input-area password">
+                  <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
+                  <button type="button" id="togglePassword" class="toggle-password">👁️</button>
+              </div>
           </div>
           <input type="submit" name="submit" value="Kirim">
           <a href="../index.php">Kembali?</a>
         </form>
       </div>
+      <script src="../Assets/JS/togglePassword.js"></script>
 </body>
 </html>

@@ -35,8 +35,6 @@
                 WHERE payments.id = $id
                 ");
 
-
-    // var_dump($payments);
 ?>
 
 <!DOCTYPE html>
@@ -65,7 +63,12 @@
                 </div>
             <?php endforeach; ?>
         </div>
-        <button class="btn-print" onclick="window.print()">Print</button>
+        
+
+        <?php if($payments[0]["status"] == "confirmed"): ?>
+
+            <button class="btn-print" onclick="window.print()">Print</button>
+        <?php endif;?>
         <a href="index.php" class="btn-back">Kembali</a>
     </div>
     
