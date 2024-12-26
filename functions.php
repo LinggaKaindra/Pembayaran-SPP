@@ -17,7 +17,6 @@
 
 //  pengguna
 function regisPeng($data){
-    var_dump("halo");return;
     global $conn;
 
 

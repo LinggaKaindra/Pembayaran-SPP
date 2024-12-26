@@ -6,6 +6,8 @@ if (isset($_POST["submit"])) {
     
     if (regisPeng($_POST)) {
         header("location: index.php");
+    }else{
+      echo "<script>alert('Terjadi kesalahan: " . mysqli_error($conn) . "');</script>";
     }
 }
 
@@ -35,10 +37,11 @@ if (isset($_POST["submit"])) {
             </div>
           </div>
           <div class="field password">
-            <div class="input-area">
-              <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
+        <div class="input-area">
+                <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
+                <button type="button" id="togglePassword" class="toggle-password">👁️</button>
             </div>
-          </div>
+        </div>
           <div class="field role">
             <div class="select-area">
                 <select name="level" id="level">
@@ -47,8 +50,9 @@ if (isset($_POST["submit"])) {
                 </select>
             </div>
           </div>
-          <input type="submit" value="Kirim">
+          <input type="submit" name="submit" value="Kirim">
         </form>
       </div>
+    <script src="../../Assets/JS/togglePassword.js"></script>
 </body>
 </html>
