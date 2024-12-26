@@ -77,6 +77,8 @@ if (isset($_POST["submit"])) {
     <?php else: ?>
     <h2>Mohon ketikan nim </h2>
     <?php endif; ?>  
+
+    <a href="index.php">kembali</a>
 </center>
 </body>
 </html>

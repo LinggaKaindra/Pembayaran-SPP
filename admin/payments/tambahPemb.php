@@ -21,9 +21,8 @@ if (isset($_POST["submit"])) {
     }
 }
 
-$ukt = query("SELECT ukt.*, students.nim, students.name, academic_years.year, academic_years.semester FROM ukt INNER JOIN academic_years ON ukt.academic_year_id = academic_years.id INNER JOIN students ON ukt.student_id = students.id WHERE students.nim = $nim ");
+$ukt = query("SELECT ukt.*, ukt.id as ukt_id, students.nim, students.name, academic_years.year, academic_years.semester FROM ukt INNER JOIN academic_years ON ukt.academic_year_id = academic_years.id INNER JOIN students ON ukt.student_id = students.id WHERE students.nim = $nim ");
 $student = query("SELECT * FROM students INNER JOIN programs on students.program_id = programs.id WHERE nim = $nim");
-// var_dump($ukt);
 $payment_methods = query("SELECT * FROM payment_methods");
 
 ?>
@@ -41,7 +40,7 @@ $payment_methods = query("SELECT * FROM payment_methods");
     <div class="wrapper">
         <header>Halaman Registrasi Pembayaran</header>
         <form action="" method="post">
-            <input type="hidden" name="ukt_id" value="<?= $ukt[0]['id']; ?>">
+            <input type="hidden" name="ukt_id" value="<?= $ukt_id ?>"">
             
             <div class="field name">
                 <div class="input-area">

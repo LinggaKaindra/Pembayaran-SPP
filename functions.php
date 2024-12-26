@@ -156,8 +156,15 @@ function changeStatusUKT($id){
 
     $sql = "UPDATE ukt SET status = 'paid' WHERE id = $id";
     mysqli_query($conn,$sql);
-    return mysqli_affected_rows($conn);
-    
+    return mysqli_affected_rows($conn); 
+}
+
+function changeStatusFailed($id){
+    global $conn;
+
+    $sql = "UPDATE ukt SET status = 'unpaid' WHERE id = $id";
+    mysqli_query($conn,$sql);
+    return mysqli_affected_rows($conn); 
 }
 
 function ubahPemb($data){

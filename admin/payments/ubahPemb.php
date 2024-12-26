@@ -6,9 +6,12 @@ $id = $_GET["id"];
 
 
 if (isset($_POST["submit"])) {  
-    
+    var_dump($_POST);
     if (ubahPemb($_POST)) {
-        header("location: index.php");
+        if ($_POST["status"] == "failed") {
+            changeStatusFailed($_POST["ukt_id"]);
+            header("location: index.php");
+        } 
     }
 }
 
@@ -58,6 +61,7 @@ $payment_methods = query("SELECT * FROM payment_methods");
           <header>Halaman Ubah Data Registrasi Pembayaran</header>
           <form action="" method="post">
             <input type="hidden" name="id" value="<?= $id?>">
+            <input type="hidden" name="ukt_id" value="<?= $payment[0]['ukt_id']?>">
             <div class="field studentid">
               <div class="input-area">
                 <input type="text" name="nim" id="nim" autocomplete="off" value="<?= $payment[0]['nim']; ?>">
@@ -101,7 +105,7 @@ $payment_methods = query("SELECT * FROM payment_methods");
                 </select>
               </div>
             </div>
-            <button type="submit" name="submit" value="Ubah">
+            <input type="submit" name="submit" value="Ubah">
           </form>
         </div>
   </body>
