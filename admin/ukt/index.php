@@ -4,6 +4,8 @@
     $ukt = query("
             SELECT 
                     ukt.*,
+                    ukt.id as ukt_id,
+                    ukt.status as ukt_status,
                     students.*,
                     academic_years.*
                 FROM 
@@ -36,6 +38,7 @@
         <tr>
             <td>No.</td>
             <td>Nama</td>
+            <td>Semester</td>
             <td>Tahun ajaran</td>
             <td>Total</td>
             <td>Status</td>
@@ -48,10 +51,11 @@
             <tr>
                 <td><?= $i; ?></td>
                 <td><?= $row["name"]; ?></td>
+                <td><?= $row["semester"]; ?></td>
                 <td><?= $row["year"]; ?></td>
                 <td>Rp. <?= number_format($row["amount"]) ?></td>
-                <td><?= $row["status"]; ?></td>
-                <td><a href="ubahUKT.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusUKT.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
+                <td><?= $row["ukt_status"]; ?></td>
+                <td><a href="ubahUKT.php?id=<?= $row["ukt_id"]; ?>">ubah</a> || <a href="hapusUKT.php?id=<?= $row["ukt_id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

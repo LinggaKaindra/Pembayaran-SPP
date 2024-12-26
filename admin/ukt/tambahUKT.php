@@ -49,18 +49,17 @@ if (isset($_POST["submit"])) {
           </div>
           <div class="field amount">
             <div class="input-area">
-              <input type="email" name="amount" id="amount" autocomplete="off" placeholder="Amount">
+              <input type="number" name="amount" id="amount" autocomplete="off" placeholder="Amount">
             </div>
           </div>
           <div class="field status">
             <div class="select-area">
               <select name="status" id="status">
                 <option value="unpaid">unpaid</option>
-                <option value="paid">paid</option>
               </select>
             </div>
           </div>
-          <input type="submit" value="Kirim">
+          <input type="submit" name="submit" value="Kirim">
         </form>
       </div>
 </body>

@@ -5,7 +5,7 @@
 require "../../functions.php";
 $id = $_GET["id"];
 
-$ukt = query("SELECT * FROM ukt WHERE id = $id");
+$ukt = query("SELECT ukt.*, students.* FROM ukt INNER JOIN students ON ukt.student_id = students.id WHERE ukt.id = $id")[0];
 $student = query("SELECT * FROM students");
 $academic_year = query("SELECT * FROM academic_years");
 
@@ -35,12 +35,12 @@ if (isset($_POST["submit"])) {
       <div class="wrapper">
         <header>Ubah Data UKT</header>
         <form action="" method="post">
+          <input type="hidden" name="id" value="<?= $ukt["id"]; ?>">
+
           <div class="field studentid">
             <div class="select-area">
               <select name="student_id" id="student_id">
-                <?php foreach ($student as $row): ?>
-                    <option value="<?php echo $row['id']; ?>"><?= $row['nim'] ?></option>
-                <?php endforeach; ?>
+                    <option name="student_id" value="<?php echo $ukt['student_id']; ?>" selected><?= $ukt['nim'] ?></option>
               </select>
             </div>
           </div>
@@ -55,7 +55,7 @@ if (isset($_POST["submit"])) {
           </div>
           <div class="field amount">
             <div class="input-area">
-              <input type="text" name="amount" id="amount" autocomplete="off" value="<?= $ukt[0]["amount"]; ?>">
+              <input type="text" name="amount" id="amount" autocomplete="off" value="<?= $ukt["amount"]; ?>">
             </div>
           </div>
           <div class="field status">
