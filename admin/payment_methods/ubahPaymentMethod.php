@@ -30,6 +30,7 @@ if (isset($_POST["submit"])) {
       <div class="wrapper">
         <header>Ubah Metode Pembayaran</header>
         <form action="" method="post">
+          <input type="hidden" name="id" value="<?= $method[0]["id"]; ?>" hidden>
           <div class="field name">
             <div class="input-area">
               <input type="text" name="name" id="name" autocomplete="off" value="<?= $method[0]["name"]; ?>">
