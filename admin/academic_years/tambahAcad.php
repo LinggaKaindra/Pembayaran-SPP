@@ -25,8 +25,16 @@ if (isset($_POST["submit"])) {
         <header>Halaman Tambah Data Tahun Ajaran</header>
         <form action="" method="post">
           <div class="field semester">
+            <div class="field year">
+              <div class="input-area">
+                <input type="text" name="year" id="year" autocomplete="off" placeholder="Year">
+              </div>
+            </div>
+          </div>
+          <div class="field semester">
             <div class="select-area">
               <select name="semester" id="semester">
+                <option value="#">Semester</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
               </select>

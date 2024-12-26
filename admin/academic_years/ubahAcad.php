@@ -30,6 +30,7 @@ if (isset($_POST["submit"])) {
       <div class="wrapper">
         <header>Halaman Ubah Data Tahun Ajaran</header>
         <form action="" method="post">
+          <input type="hidden" name="id" value="<?= $academic[0]["id"]; ?>">
           <div class="field year">
             <div class="input-area">
               <input type="text" name="year" id="years" autocomplete="off" value="<?= $academic[0]["year"]; ?>">
