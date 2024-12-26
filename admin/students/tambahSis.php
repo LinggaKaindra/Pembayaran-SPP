@@ -45,8 +45,9 @@ if (isset($_POST["submit"])) {
           </div>
           <div class="field password">
             <div class="input-area">
-              <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
-            </div>
+                  <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
+                  <button type="button" id="togglePassword" class="toggle-password">👁️</button>
+              </div>
           </div>
           <div class="field phone">
             <div class="input-area">
@@ -62,8 +63,9 @@ if (isset($_POST["submit"])) {
               </select>
             </div>
           </div>
-          <input type="submit" value="Kirim">
+          <input type="submit" name="submit" value="Kirim">
         </form>
       </div>
+    <script src="../../Assets/JS/togglePassword.js"></script>
 </body>
 </html>

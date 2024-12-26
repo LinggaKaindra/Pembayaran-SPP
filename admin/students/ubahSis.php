@@ -5,7 +5,7 @@
 
 
   $programs = query("SELECT * FROM programs");
-  $siswa = query("SELECT students.*, students.id as studentId, programs.*
+  $siswa = query("SELECT students.*, students.id as studentId, programs.faculty as faculty
                 FROM students
                 LEFT JOIN programs ON students.program_id = programs.id WHERE students.id = '$id'
             ")[0];
@@ -52,7 +52,7 @@
           </div>
           <div class="field password">
             <div class="input-area">
-              <input type="password" name="password" id="password" autocomplete="off" value="<?= $siswa["password"]; ?>">
+              <input type="password" name="password" id="password" autocomplete="off">
             </div>
           </div>
           <div class="field phone">
