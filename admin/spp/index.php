@@ -43,7 +43,7 @@
                 <td><?= $spp["tahun_dibayar"]; ?></td>
                 <td><?= $spp["id_spp"]; ?></td>
                 <td><?= $spp["jumlah_dibayar"]; ?></td>
-                <td><a href="spp/ubahHis.php?id=<?= $spp["id_pembayaran"]; ?>">Ubah</a> || <a href="spp/hapusHis.php?id=<?= $spp["id_pembayaran"]; ?>">Hapus</a></td>
+                <td><a href="spp/ubahHis.php?id=<?= $spp["id_pembayaran"]; ?>">Ubah</a> || <a href="spp/hapusHis.php?id=<?= $spp["id_pembayaran"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')">Hapus</a></td>
                               
             </tr>
         <?php $i++; ?>

@@ -40,7 +40,7 @@
                 <td><?= $row["year"]; ?></td>
                 <td><?= $row["semester"]; ?></td>
                 <td><?= $row["status"]; ?></td>
-                <td><a href="ubahAcad.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusAcad.php?id=<?= $row["id"]; ?>"> Hapus</a></td>
+                <td><a href="ubahAcad.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusAcad.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

@@ -66,7 +66,7 @@
                 <td><?= $row["paid_date"]; ?></td>
                 <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
                 <td><?= $row["status"]; ?></td>
-                <td> <a href="detailPemb.php?id=<?= $row["paymentId"]; ?>">Detail</a> || <a href="ubahPemb.php?id=<?= $row["paymentId"]; ?>">ubah</a> || <a href="hapusPemb.php?id=<?= $row["paymentId"]; ?>"> Hapus</a></td>
+                <td> <a href="detailPemb.php?id=<?= $row["paymentId"]; ?>">Detail</a> || <a href="ubahPemb.php?id=<?= $row["paymentId"]; ?>">ubah</a> || <a href="hapusPemb.php?id=<?= $row["paymentId"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

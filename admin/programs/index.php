@@ -38,7 +38,7 @@
                 <td><?= $i; ?></td>
                 <td><?= $row["name"]; ?></td>
                 <td><?= $row["faculty"]; ?></td>
-                <td><a href="ubahProdi.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusProdi.php?id=<?= $row["id"]; ?>"> Hapus</a></td>
+                <td><a href="ubahProdi.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusProdi.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

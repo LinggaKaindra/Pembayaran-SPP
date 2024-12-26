@@ -36,7 +36,7 @@
             <tr>
                 <td><?= $i; ?></td>
                 <td><?= $row["name"]; ?></td>
-                <td><a href="ubahPaymentMethod.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusPaymentMethod.php?id=<?= $row["id"]; ?>"> Hapus</a></td>
+                <td><a href="ubahPaymentMethod.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusPaymentMethod.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

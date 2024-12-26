@@ -51,7 +51,7 @@
                 <td><?= $row["year"]; ?></td>
                 <td>Rp. <?= number_format($row["amount"]) ?></td>
                 <td><?= $row["status"]; ?></td>
-                <td><a href="ubahUKT.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusUKT.php?id=<?= $row["id"]; ?>"> Hapus</a></td>
+                <td><a href="ubahUKT.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusUKT.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

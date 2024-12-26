@@ -37,7 +37,7 @@
                 <td><?= $row["username"]; ?></td>
                 <td><?= $row["email"]; ?></td>
                 <td><?= $row["role"]; ?></td>
-                <td><a href="ubahPeng.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusPeng.php?id=<?= $row["id"]; ?>"> Hapus</a></td>
+                <td><a href="ubahPeng.php?id=<?= $row["id"]; ?>">ubah</a> || <a href="hapusPeng.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>
