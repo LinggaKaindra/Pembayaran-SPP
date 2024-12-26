@@ -44,6 +44,7 @@
                 <li><a href="academic_years/index.php">Tahun Ajaran</a></li>
             <?php else : ?>
                 <li><a href="students/index.php">Siswa</a></li>
+                <li><a href="ukt/index.php">UKT</a></li>
                 <li><a href="payments/index.php">Pembayaran UKT</a></li>
             <?php endif; ?>
             <li><a href="../logout.php">Log out</a></li>

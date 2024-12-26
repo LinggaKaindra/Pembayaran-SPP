@@ -2,6 +2,8 @@
 
 session_start();
 
+
+
 if (!isset($_SESSION["loggedin"])) {
     header("Location: ../login.php");
     exit;
@@ -11,6 +13,7 @@ if (!isset($_SESSION["loggedin"])) {
 require "../../functions.php";
 
 $nim = $_GET["nim"];
+$petugas_id = $_SESSION["id"];
 $ukt_id = $_GET["id"];
 
 if (isset($_POST["submit"])) {   
@@ -40,7 +43,8 @@ $payment_methods = query("SELECT * FROM payment_methods");
     <div class="wrapper">
         <header>Halaman Registrasi Pembayaran</header>
         <form action="" method="post">
-            <input type="hidden" name="ukt_id" value="<?= $ukt_id ?>"">
+            <input type="hidden" name="ukt_id" value="<?= $ukt_id ?>">
+            <input type="hidden" name="petugas_id" value="<?= $petugas_id ?>">
             
             <div class="field name">
                 <div class="input-area">

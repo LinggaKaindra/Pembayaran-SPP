@@ -1,5 +1,4 @@
 <?php
-
     require '../../functions.php';
     $prodi = query("SELECT * FROM programs");
 

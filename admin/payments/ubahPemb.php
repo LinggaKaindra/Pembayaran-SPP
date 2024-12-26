@@ -1,12 +1,13 @@
 <?php 
 
+session_start();
+
+$petugas_id = $_SESSION["id"];
 require "../../functions.php";
 
 $id = $_GET["id"];
 
-
 if (isset($_POST["submit"])) {  
-    var_dump($_POST);
     if (ubahPemb($_POST)) {
         if ($_POST["status"] == "failed") {
             changeStatusFailed($_POST["ukt_id"]);
@@ -62,6 +63,7 @@ $payment_methods = query("SELECT * FROM payment_methods");
           <form action="" method="post">
             <input type="hidden" name="id" value="<?= $id?>">
             <input type="hidden" name="ukt_id" value="<?= $payment[0]['ukt_id']?>">
+            <input type="hidden" name="petugas_id" value="<?= $petugas_id ?>">
             <div class="field studentid">
               <div class="input-area">
                 <input type="text" name="nim" id="nim" autocomplete="off" value="<?= $payment[0]['nim']; ?>">
@@ -100,7 +102,6 @@ $payment_methods = query("SELECT * FROM payment_methods");
             <div class="field status">
               <div class="select-area">
                 <select name="status" id="status">
-                    <option value="confirmed">confirmed</option>
                     <option value="failed">failed</option>
                 </select>
               </div>

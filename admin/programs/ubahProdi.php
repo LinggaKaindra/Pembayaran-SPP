@@ -26,13 +26,13 @@ if (isset($_POST["submit"])) {
     <title>Ubah Data Prodi</title>
 </head>
 <body>
-  <input type="hidden" name="id" value="<?= $prodi[0]["id"]; ?>">
-      <div class="wrapper">
-        <header>Halaman Ubah Prodi</header>
-        <form action="" method="post">
+  <div class="wrapper">
+    <header>Halaman Ubah Prodi</header>
+    <form action="" method="post">
+          <input type="hidden" name="id" value="<?= $prodi[0]["id"]; ?>">
           <div class="field name">
             <div class="input-area">
-              <input type="text" name="nama" id="nama" autocomplete="off" value="<?= $prodi[0]["name"]; ?>">
+              <input type="text" name="name" id="nama" autocomplete="off" value="<?= $prodi[0]["name"]; ?>">
             </div>
           </div>
           <div class="field faculty">

@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
             </div>
           </div>
           <div class="field password">
-            <div class="input-area">
+            <div class="input-area password">
                   <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
                   <button type="button" id="togglePassword" class="toggle-password">👁️</button>
               </div>

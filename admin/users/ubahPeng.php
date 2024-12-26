@@ -28,10 +28,10 @@ if (isset($_POST["submit"])) {
     <title>Ubah data Registrasi Pengguna</title>
 </head>
 <body>
-  <input type="hidden" name="id" value="<?= $pengguna[0]["id"]; ?>">
-      <div class="wrapper">
-        <header>Halaman Registrasi Pengguna</header>
-        <form action="" method="post">
+  <div class="wrapper">
+    <header>Halaman Registrasi Pengguna</header>
+    <form action="" method="post">
+          <input type="hidden" name="id" value="<?= $pengguna[0]["id"]; ?>">
           <div class="field username">
             <div class="input-area">
               <input type="text" name="username" id="username" autocomplete="off" value="<?= $pengguna[0]["username"]; ?>">
@@ -44,7 +44,7 @@ if (isset($_POST["submit"])) {
           </div>
           <div class="field password">
             <div class="input-area">
-              <input type="password" name="password" id="password" autocomplete="off" value="<?= $pengguna[0]["password"]; ?>">
+              <input type="password" name="password" id="password" autocomplete="off">
             </div>
           </div>
           <div class="field role">

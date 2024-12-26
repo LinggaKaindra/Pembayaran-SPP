@@ -66,7 +66,7 @@ function hapusPeng($id){
 function tambahProdi($data){
     global $conn;
 
-    $nama = htmlspecialchars($data["nama"]);
+    $nama = htmlspecialchars($data["name"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
 
     $sql = "INSERT INTO programs (name, faculty) VALUES ('$nama','$jurusan')";
@@ -81,7 +81,7 @@ function ubahProd($data){
     // var_dump($data);
 
     $id = $data["id"];
-    $nama = htmlspecialchars($data["nama"]);
+    $nama = htmlspecialchars($data["name"]);
     $jurusan = htmlspecialchars($data["jurusan"]);
 
     var_dump($id, $nama, $jurusan);
@@ -141,11 +141,12 @@ function tambahPemb($data){
     $method_id = htmlspecialchars($data["payment_method_id"]);
     $paid_date = date("Y-m-d H:i:s");
 
-     $amount = str_replace('Rp. ', '', $data["amount"]);
-     $amount = str_replace(',', '', $amount);
+    $amount = str_replace('Rp. ', '', $data["amount"]);
+    $amount = str_replace(',', '', $amount);
+    $petugas_id = htmlspecialchars($data["petugas_id"]);
     $status = "confirmed";
 
-    $sql = "INSERT INTO payments (ukt_id, method_id, paid_date, amount_paid, status) VALUES ('$id','$method_id','$paid_date','$amount','$status')";
+    $sql = "INSERT INTO payments (ukt_id, method_id, paid_date, amount_paid, status, user_id) VALUES ('$id','$method_id','$paid_date','$amount','$status','$petugas_id')";
     mysqli_query($conn,$sql);
     return mysqli_affected_rows($conn);
 
@@ -174,7 +175,9 @@ function ubahPemb($data){
     $id = $data["id"];
     $status = htmlspecialchars($data["status"]);
 
-    $sql = "UPDATE payments SET status = '$status' WHERE id = '$id'";
+    $petugas_id = htmlspecialchars($data["petugas_id"]);
+
+    $sql = "UPDATE payments SET status = '$status', user_id = '$petugas_id' WHERE id = '$id'";
 
     mysqli_query($conn,$sql);
     return mysqli_affected_rows($conn);
