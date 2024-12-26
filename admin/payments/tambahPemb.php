@@ -1,15 +1,23 @@
 <?php 
 
+session_start();
+
+if (!isset($_SESSION["loggedin"])) {
+    header("Location: ../login.php");
+    exit;
+}
+
+
 require "../../functions.php";
 
 $nim = $_GET["nim"];
+$ukt_id = $_GET["id"];
 
-if (isset($_POST["submit"])) {
-
-    // var_dump($_POST);return;    
-    
+if (isset($_POST["submit"])) {   
     if (tambahPemb($_POST)) {
-        header("location: index.php");
+        if (changeStatusUKT($ukt_id)) {
+            header("location: index.php");
+        }
     }
 }
 
@@ -26,43 +34,60 @@ $payment_methods = query("SELECT * FROM payment_methods");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
-    <h1>Halaman Registrasi Pembayaran</h1>
-    <form action="" method="post">
-        <input type="hidden" name="ukt_id" value="<?= $ukt[0]['id']; ?>">
-        <br>
-        <label for="nim">nim : </label>
-        <input type="text" name="nim" id="nim" autocomplete="off" value="<?= $nim; ?>">
-        <br>
-        <label for="name">name : </label>
-        <input type="text" name="name" id="name" autocomplete="off" value="<?= $ukt[0]['name']; ?>" disabled>
-        <br>
-        <label for="fakultas">fakultas : </label>
-        <input type="text" name="facultas" id="facultas" autocomplete="off" value="<?= $student[0]['faculty']; ?>" disabled>
-        <br>
-        <label for="tahun">tahun ajaran : </label>
-        <input type="text" name="tahun_ajaran" id="tahun" autocomplete="off" value="<?= $ukt[0]['year']; ?>" disabled>
-        <br>
-        <label for="semester">Semester : </label>
-        <input type="text" name="semester" id="semester" autocomplete="off" value="<?= $ukt[0]['semester']; ?>" disabled>
-        <br>
-        <label for="amount">amount : </label>
-        <input type="text" name="amount" id="amount" autocomplete="off" value="Rp. <?= $ukt[0]['amount']; ?>">
-        <br>
-        
-        <label for="payment_method_id">Pilih Method : </label>
-        <select name="payment_method_id" id="payment_method_id">
-            <?php foreach ($payment_methods as $row): ?>
-                <option value="<?php echo $row['id']; ?>"><?= $row['name'] ?></option>
-            <?php endforeach; ?>
-        </select>
-        <br>
-
-        <br>
-        <button type="submit" name="submit">Bayar</button>
-    </form>
-    
+    <link rel="stylesheet" href="../../Assets/CSS/LoginPetugasSiswaStyle.css">
 </head>
+<body>
+
+    <div class="wrapper">
+        <header>Halaman Registrasi Pembayaran</header>
+        <form action="" method="post">
+            <input type="hidden" name="ukt_id" value="<?= $ukt[0]['id']; ?>">
+            
+            <div class="field name">
+                <div class="input-area">
+                    <input type="text" name="nim" id="nim" autocomplete="off" value="<?= $nim; ?>">
+                </div>
+            </div>
+            <div class="field name">
+                <div class="input-area">
+                <input type="text" name="name" id="name" autocomplete="off" value="<?= $ukt[0]['name']; ?>" disabled>
+                </div>
+            </div>
+            <div class="field name">
+                <div class="input-area">
+                <input type="text" name="facultas" id="facultas" autocomplete="off" value="<?= $student[0]['faculty']; ?>" disabled>
+                </div>
+            </div>
+            <div class="field name">
+                <div class="input-area">
+                <input type="text" name="tahun_ajaran" id="tahun" autocomplete="off" value="<?= $ukt[0]['year']; ?>" disabled>
+                </div>
+            </div>
+            <div class="field name">
+                <div class="input-area">
+                <input type="text" name="semester" id="semester" autocomplete="off" value="<?= $ukt[0]['semester']; ?>" disabled>
+                </div>
+            </div>
+            <div class="field name">
+                <div class="input-area">
+                <input type="text" name="amount" id="amount" autocomplete="off" value="Rp. <?= $ukt[0]['amount']; ?>">
+                </div>
+            </div>
+    
+            <div class="field">
+                <div class="select-area">
+                  <select name="payment_method_id" id="payment_method_id">
+                    <?php foreach ($payment_methods as $row): ?>
+                        <option value="<?php echo $row['id']; ?>"><?= $row['name'] ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+              </div>
+    
+            <input type="submit" name="submit"></input>
+        </form>
+    </div>
+    
 <body>
     
 </body>

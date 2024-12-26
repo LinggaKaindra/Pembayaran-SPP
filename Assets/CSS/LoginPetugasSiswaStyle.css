@@ -104,13 +104,11 @@ a:hover{
   margin-left: 10px;
 }
 
-.input-area {
+.input-area.password {
   display: flex;
   align-items: center;
 }
 
-input[type="password"], input[type="text"] {
-  flex-grow: 1;
-  /* padding: 8px; */
-}
+
+
 

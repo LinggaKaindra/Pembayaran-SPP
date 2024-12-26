@@ -31,7 +31,6 @@ CREATE TABLE `payments` (
   `method_id` int NOT NULL,
   `paid_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `amount_paid` decimal(15,2) NOT NULL,
-  `receipt_url` text,
   `status` enum('pending','confirmed','failed') DEFAULT 'pending',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

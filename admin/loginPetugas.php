@@ -64,13 +64,15 @@ if (isset($_POST["submit"])) {
             </div>
           </div>
           <div class="field password">
-            <div class="input-area">
-              <input type="password" name="password" id="password"placeholder="Password">
-            </div>
+            <div class="input-area password">
+                  <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
+                  <button type="button" id="togglePassword" class="toggle-password">👁️</button>
+              </div>
           </div>
           <input type="submit" name="submit" value="Kirim">
           <a href="regisPetugas.php">Belum punya akun?</a> || <a href="../index.php">Kembali?</a>
         </form>
       </div>
+      <script src="../Assets/JS/togglePassword.js"></script>
 </body>
 </html>

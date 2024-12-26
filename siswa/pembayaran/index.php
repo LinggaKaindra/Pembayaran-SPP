@@ -14,7 +14,6 @@
                     payments.id AS paymentId,
                     payments.paid_date AS paid_date,
                     payments.amount_paid as amount_paid,
-                    payments.receipt_url as receipt_url,
                     ukt.status as status,
                     ukt.id AS uktId,
                     payment_methods.name AS method_name,

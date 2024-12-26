@@ -5,6 +5,8 @@ require "../../functions.php";
 if (isset($_POST["submit"])) {
     
     $search = cariPemb($_POST["nim"]);
+
+    // var_dump($search);
 }
 ?>
 
@@ -14,10 +16,7 @@ if (isset($_POST["submit"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
-    <title>Document</title>
-
-    
-    
+    <title>Document</title> 
 </head>
 <body>
 <center>
@@ -30,8 +29,7 @@ if (isset($_POST["submit"])) {
         </div>
         
         <br>
-        <input type="submit" name="submit" value="Kirim">
-        <!-- <button type="submit" name="submit">Kirim</button> -->
+        <input type="submit" name="submit" value="Kirim">   
     </form>
 
     <h1>Halaman Pembayaran</h1>
@@ -67,7 +65,7 @@ if (isset($_POST["submit"])) {
                     
                     } else {
                         echo '
-                            <td><a href="detailPemb.php?id=' . $row['id'] . '">Detail</a></td>
+                            <td><a href="#">#</a></td>
                         ';
                     }
                 ?>

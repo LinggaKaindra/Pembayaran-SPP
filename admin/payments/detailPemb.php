@@ -7,7 +7,6 @@
                     payments.id AS paymentId,
                     payments.paid_date AS paid_date,
                     payments.amount_paid as amount_paid,
-                    payments.receipt_url as receipt_url,
                     payments.status as status,
                     ukt.id AS uktId,
                     payment_methods.name AS method_name,
@@ -29,8 +28,6 @@
                 WHERE payments.id = $id
                 ");
 
-
-    // var_dump($payments);
 ?>
 
 <!DOCTYPE html>
@@ -48,38 +45,40 @@
   
       <div class="table-container">
       <table cellpadding="20">
-      <thead>
-      <tr>
-          <th>No.</th>
-          <th>NIM</th>
-          <th>Student Name</th>
-          <th>Tahun & Semester</th>
-          <th>Fakultas</th>
-          <th>Payment Method</th>
-          <th>Payment Date</th>
-          <th>Payment Amount</th>
-          <th>status</th>
-      </tr>
-      </thead>
+            <thead>
+            <tr>
+                <th>No.</th>
+                <th>NIM</th>
+                <th>Student Name</th>
+                <th>Tahun & Semester</th>
+                <th>Fakultas</th>
+                <th>Payment Method</th>
+                <th>Payment Date</th>
+                <th>Payment Amount</th>
+                <th>status</th>
+            </tr>
+            </thead>
 
-      <?php $i = 1; ?>
-      <?php foreach( $payments as $row):?>
-          <tr>
-              <td><?= $i; ?></td>
-              <td><?= $row["nim"]; ?></td>
-              <td><?= $row["name"]; ?></td>
-              <td><?= $row["year"] .'-'. $row["semester"] ?></td>
-              <td><?= $row["faculty"]; ?></td>
-              <td><?= $row["method_name"]; ?></td>
-              <td><?= $row["paid_date"]; ?></td>
-              <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
-              <td><?= $row["status"]; ?></td>
-          </tr>
-      <?php $i++; ?>
-      <?php endforeach; ?>
-  </table>
-
+            <?php $i = 1; ?>
+            <?php foreach( $payments as $row):?>
+                <tr>
+                    <td><?= $i; ?></td>
+                    <td><?= $row["nim"]; ?></td>
+                    <td><?= $row["name"]; ?></td>
+                    <td><?= $row["year"] .'-'. $row["semester"] ?></td>
+                    <td><?= $row["faculty"]; ?></td>
+                    <td><?= $row["method_name"]; ?></td>
+                    <td><?= $row["paid_date"]; ?></td>
+                    <td>Rp. <?= number_format($row["amount_paid"]); ?></td>
+                    <td><?= $row["status"]; ?></td>
+                </tr>
+            <?php $i++; ?>
+            <?php endforeach; ?>
+        </table>
       </div>
+      <a href="#" class="btn-print" onclick="window.print()">Print</a>
+      <span> || </span>
+      <a href="index.php" class="btn-back">Kembali</a>
   
   
   </center>

@@ -4,12 +4,8 @@ require "../../functions.php";
 
 $id = $_GET["id"];
 
-var_dump($id);
 
-
-if (isset($_POST["submit"])) {
-
-    // var_dump($_POST);return;    
+if (isset($_POST["submit"])) {  
     
     if (ubahPemb($_POST)) {
         header("location: index.php");
@@ -44,10 +40,6 @@ $payment = query("SELECT
                 WHERE payments.id = $id 
                 ");
 
-
-
-
-var_dump($payment);
 $payment_methods = query("SELECT * FROM payment_methods");
 
 ?>
@@ -62,10 +54,10 @@ $payment_methods = query("SELECT * FROM payment_methods");
       <title>Ubah Data Registrasi Pembayaran</title>
   </head>
   <body>
-    <input type="hidden" name="id" value="<?= $id?>">
-        <div class="wrapper">
+      <div class="wrapper">
           <header>Halaman Ubah Data Registrasi Pembayaran</header>
           <form action="" method="post">
+            <input type="hidden" name="id" value="<?= $id?>">
             <div class="field studentid">
               <div class="input-area">
                 <input type="text" name="nim" id="nim" autocomplete="off" value="<?= $payment[0]['nim']; ?>">
@@ -109,7 +101,7 @@ $payment_methods = query("SELECT * FROM payment_methods");
                 </select>
               </div>
             </div>
-            <input type="submit" name="submit" value="Ubah">
+            <button type="submit" name="submit" value="Ubah">
           </form>
         </div>
   </body>

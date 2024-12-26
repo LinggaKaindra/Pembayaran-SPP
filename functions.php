@@ -139,19 +139,25 @@ function tambahPemb($data){
 
     $id = $data["ukt_id"];
     $method_id = htmlspecialchars($data["payment_method_id"]);
-    $paid_date = date("Y-m-d");
+    $paid_date = date("Y-m-d H:i:s");
 
-     // Remove the 'Rp.' part and ensure it's a valid number
      $amount = str_replace('Rp. ', '', $data["amount"]);
-     $amount = str_replace(',', '', $amount); // Remove commas in case the amount has them (e.g., 'Rp. 10,000')
-
-    $receipt_url = "http://localhost/spp_2/admin/payments/receipts/". $data["nim"];
+     $amount = str_replace(',', '', $amount);
     $status = "confirmed";
 
-    $sql = "INSERT INTO payments (ukt_id, method_id, paid_date, amount_paid, receipt_url, status) VALUES ('$id','$method_id','$paid_date','$amount','$receipt_url','$status')";
+    $sql = "INSERT INTO payments (ukt_id, method_id, paid_date, amount_paid, status) VALUES ('$id','$method_id','$paid_date','$amount','$status')";
     mysqli_query($conn,$sql);
     return mysqli_affected_rows($conn);
 
+}
+
+function changeStatusUKT($id){
+    global $conn;
+
+    $sql = "UPDATE ukt SET status = 'paid' WHERE id = $id";
+    mysqli_query($conn,$sql);
+    return mysqli_affected_rows($conn);
+    
 }
 
 function ubahPemb($data){
