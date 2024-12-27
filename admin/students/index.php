@@ -1,4 +1,11 @@
 <?php
+   session_start();
+
+   if (!isset($_SESSION["loggedin"])) {
+       header("Location: ../loginPetugas.php");
+       exit;
+   }
+   
     require '../../functions.php';
 
     $siswa = query("SELECT students.*, students.id as studentId, programs.*

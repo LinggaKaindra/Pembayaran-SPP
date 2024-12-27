@@ -1,5 +1,11 @@
 <?php
 
+    session_start();
+
+    if (!isset($_SESSION["loggedin"])) {
+        header("Location: ../loginPetugas.php");
+        exit;
+    }
     require '../../functions.php';
     $method = query("SELECT * FROM payment_methods");
 

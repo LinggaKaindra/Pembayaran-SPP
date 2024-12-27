@@ -1,4 +1,10 @@
 <?php
+   session_start();
+
+   if (!isset($_SESSION["loggedin"])) {
+       header("Location: ../loginPetugas.php");
+       exit;
+   }
     require '../../functions.php';
     $prodi = query("SELECT * FROM programs");
 
