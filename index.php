@@ -38,7 +38,7 @@
             <!-- <div class="field student">: Bagian untuk opsi "Siswa", dengan kelas "field" dan "student" untuk styling. -->
             <div class="input-area">
                 <!-- <div class="input-area">: Container untuk elemen input dalam opsi ini. -->
-                <a href="siswa/loginSiswa.php">
+                <a href="siswa/index.php">
                     <!-- <a href="siswa/loginSiswa.php">: Tautan untuk mengarahkan pengguna ke halaman login siswa. -->
                     <input type="button" value="Siswa">
                     <!-- <input type="button">: Tombol yang berfungsi sebagai pemicu tautan. -->
