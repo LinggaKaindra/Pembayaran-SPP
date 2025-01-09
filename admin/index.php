@@ -31,7 +31,7 @@
     <!-- Menghubungkan file CSS untuk gaya navigasi -->
     <link rel="stylesheet" href="../Assets/CSS/cardStyle.css">
     <!-- Menghubungkan file CSS untuk gaya kartu -->
-    <title>Document</title>
+    <title>Dasbor</title>
     <!-- Judul halaman -->
 </head>
 <body>
