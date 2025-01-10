@@ -82,7 +82,7 @@
                             <!-- Tautan untuk mengubah data program studi, dengan ID dikirimkan melalui parameter GET -->
                             || 
                             <a href="hapusProdi.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')">Hapus</a>
-                            <!-- Tautan untuk menghapus data program studi, dengan konfirmasi sebelum menghapus -->
+                            <!-- JS Tautan untuk menghapus data program studi, dengan konfirmasi sebelum menghapus -->
                         </td>
                     </tr>
                     <?php $i++; ?>

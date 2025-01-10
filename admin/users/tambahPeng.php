@@ -8,6 +8,7 @@ if (isset($_POST["submit"])) {
         header("location: index.php");
     }else{
       echo "<script>alert('Terjadi kesalahan: " . mysqli_error($conn) . "');</script>";
+    //   JS untuk menampilkan pesan kesalahan
     }
 }
 
@@ -64,7 +65,7 @@ if (isset($_POST["submit"])) {
                     <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
                     <!-- Elemen <input> digunakan untuk memasukkan password -->
                     <button type="button" id="togglePassword" class="toggle-password">👁️</button>
-                    <!-- Elemen <button> digunakan untuk menampilkan atau menyembunyikan password -->
+                    <!-- JS Elemen <button> digunakan untuk menampilkan atau menyembunyikan password -->
                 </div>
             </div>
 
@@ -88,6 +89,6 @@ if (isset($_POST["submit"])) {
     </div>
 
     <script src="../../Assets/JS/togglePassword.js"></script>
-    <!-- Elemen <script> digunakan untuk menyisipkan file JavaScript eksternal untuk fitur toggle password -->
+    <!-- Elemen <script> JS digunakan untuk menyisipkan file JavaScript eksternal untuk fitur toggle password -->
 </body>
 </html>

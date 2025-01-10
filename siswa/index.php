@@ -24,9 +24,11 @@ if (isset($_POST["submit"])) {
             header("Location: pembayaran/index.php");
         } else {
           echo "<script>alert('Password salah!')</script>";
+        //   JS menampilkan alert jika salah
         }
     } else {
       echo "<script>alert('Email tidak ditemukan !')</script>";
+        //   JS menampilkan alert jika salah
     }
 }
 
@@ -78,7 +80,7 @@ if (isset($_POST["submit"])) {
                     <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
                     <!-- Elemen <input> digunakan untuk memasukkan password -->
                     <button type="button" id="togglePassword" class="toggle-password">👁️</button>
-                    <!-- Elemen <button> digunakan untuk mengaktifkan atau menonaktifkan visibilitas password -->
+                    <!-- JS Elemen <button> digunakan untuk mengaktifkan atau menonaktifkan visibilitas password -->
                 </div>
             </div>
 

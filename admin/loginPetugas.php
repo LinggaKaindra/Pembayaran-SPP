@@ -34,9 +34,11 @@ if (isset($_POST["submit"])) {
                 exit;
             }
         } else {
+            // JS jika password salah akan menunjukan alert
             echo "<script>alert('Password salah!')</script>";
         }
     } else {
+      // JS jika email tidak ada akan menunjukan alert
         echo "<script>alert('Email tidak ditemukan !')</script>";
     }
 }
@@ -93,6 +95,6 @@ if (isset($_POST["submit"])) {
         </form>
       </div>
       <script src="../Assets/JS/togglePassword.js"></script>
-      <!-- Menghubungkan file JavaScript eksternal untuk fitur toggle password -->
+      <!-- Menghubungkan file JS eksternal untuk fitur toggle password -->
 </body>
 </html>

@@ -79,7 +79,7 @@
                             <!-- <a href="ubahAcad.php">: Tautan untuk mengubah data tahun ajaran. -->
                             || 
                             <a href="hapusAcad.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a>
-                            <!-- <a href="hapusAcad.php">: Tautan untuk menghapus data tahun ajaran dengan konfirmasi. -->
+                            <!-- JS <a href="hapusAcad.php">: Tautan untuk menghapus data tahun ajaran dengan konfirmasi. -->
                         </td>
                     </tr>
                     <?php $i++; ?>

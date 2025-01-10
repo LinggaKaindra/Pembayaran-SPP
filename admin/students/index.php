@@ -54,6 +54,7 @@
                 <td><?= $row["phone"]; ?></td> 
                 <td><?= $row["faculty"]; ?></td> 
                 <td><a href="ubahSis.php?id=<?= $row["studentId"]; ?>">ubah</a> || <a href="hapusSis.php?id=<?= $row["studentId"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a></td>
+                 <!-- JS Tautan untuk menghapus data program studi, dengan konfirmasi sebelum menghapus -->
             </tr>
         <?php $i++; ?>
         <?php endforeach; ?>

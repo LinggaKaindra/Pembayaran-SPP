@@ -102,7 +102,7 @@
                         || 
                         <a href="hapusPaymentMethod.php?id=<?= $row["id"]; ?>" onclick="return confirm('Apakah kamu yakin ingin menghapus data ini?')"> Hapus</a>
                         <!--
-                        Tautan untuk menghapus data dengan konfirmasi menggunakan JavaScript.
+                        Tautan untuk menghapus data dengan konfirmasi menggunakan JS.
                         -->
                     </td>
                 </tr>

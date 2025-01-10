@@ -90,7 +90,7 @@
         <?php if($payments[0]["status"] == "confirmed"): ?>
             <!-- Kondisi PHP untuk memeriksa apakah status pembayaran pertama adalah "confirmed". -->
             <button class="btn-print" onclick="window.print()">Print</button>
-            <!-- <button>: Tombol untuk mencetak halaman menggunakan fungsi JavaScript window.print(). -->
+            <!-- JS <button>: Tombol untuk mencetak halaman menggunakan fungsi JavaScript window.print(). -->
         <?php endif;?>
         <a href="index.php" class="btn-back">Kembali</a>
         <!-- <a href="index.php">: Tautan untuk kembali ke halaman index. -->

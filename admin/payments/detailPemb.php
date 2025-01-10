@@ -143,7 +143,7 @@
         </div>
         
         <a href="#" onclick="window.print()">Print</a>
-        <!-- Tautan untuk mencetak halaman, dengan fungsi JavaScript untuk memicu aksi cetak -->
+        <!-- JS Tautan untuk mencetak halaman, dengan fungsi JavaScript untuk memicu aksi cetak -->
 
         <span> || </span>
         <!-- Elemen <span> sebagai pemisah visual antar tautan -->
