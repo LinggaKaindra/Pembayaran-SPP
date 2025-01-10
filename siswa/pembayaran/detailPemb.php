@@ -77,7 +77,7 @@
                     <!-- Menampilkan fakultas dari array $row. -->
                     <p><strong>Payment Method:</strong> <?= $row["method_name"]; ?></p>
                     <!-- Menampilkan metode pembayaran dari array $row. -->
-                    <p><strong>Payment Date:</strong> <?= $row["paid_date"]; ?></p>
+                    <p><strong>Payment Date:</strong> <?= date("l, F j, Y", strtotime($row["paid_date"])); ?></p>
                     <!-- Menampilkan tanggal pembayaran dari array $row. -->
                     <p><strong>Payment Amount:</strong> Rp. <?= number_format($row["amount_paid"]); ?></p>
                     <!-- Menampilkan jumlah pembayaran dalam format angka Indonesia dari array $row. -->

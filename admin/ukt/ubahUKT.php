@@ -5,7 +5,7 @@
 require "../../functions.php";
 $id = $_GET["id"];
 
-$ukt = query("SELECT ukt.*, students.* FROM ukt INNER JOIN students ON ukt.student_id = students.id WHERE ukt.id = $id")[0];
+$ukt = query("SELECT ukt.*, ukt.id as uktID, students.* FROM ukt INNER JOIN students ON ukt.student_id = students.id WHERE ukt.id = $id")[0];
 $student = query("SELECT * FROM students");
 $academic_year = query("SELECT * FROM academic_years");
 
@@ -15,7 +15,6 @@ if (isset($_POST["submit"])) {
         header("location: index.php");
     }
 }
-
 
 ?>
 
@@ -43,9 +42,6 @@ if (isset($_POST["submit"])) {
 <body>
     <!-- Elemen <body> berisi semua konten utama halaman yang akan ditampilkan di browser -->
     
-    <input type="hidden" name="id" value="<?= $ukt[0]["id"]; ?>">
-    <!-- Elemen <input> dengan type="hidden" untuk menyimpan nilai ID UKT tanpa menampilkannya di halaman -->
-    
     <div class="wrapper">
         <!-- Elemen <div> dengan class "wrapper" digunakan untuk membungkus konten utama halaman -->
         
@@ -55,7 +51,7 @@ if (isset($_POST["submit"])) {
         <form action="" method="post">
             <!-- Elemen <form> digunakan untuk mengirim data ke server dengan metode POST -->
             
-            <input type="hidden" name="id" value="<?= $ukt["id"]; ?>">
+            <input type="hidden" name="id" value="<?= $ukt["uktID"]; ?>">
             <!-- Elemen <input> dengan type="hidden" untuk menyimpan nilai ID UKT yang akan diubah -->
             
             <div class="field studentid">

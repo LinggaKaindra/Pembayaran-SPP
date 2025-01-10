@@ -60,7 +60,7 @@ if (isset($_POST["submit"])) {
 
             <div class="field password">
                 <!-- Elemen <div> dengan class "field password" digunakan untuk membungkus input password -->
-                <div class="input-area">
+                <div class="input-area password">
                     <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
                     <!-- Elemen <input> digunakan untuk memasukkan password -->
                     <button type="button" id="togglePassword" class="toggle-password">👁️</button>

@@ -44,11 +44,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Mengatur agar halaman dapat disesuaikan dengan lebar layar perangkat, penting untuk desain responsif -->
     
-    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
-    <!-- Menyertakan file CSS eksternal untuk memberikan gaya pada halaman -->
-    
     <title>Document</title>
     <!-- Judul halaman yang akan ditampilkan di tab browser -->
+
+    <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
+    <!-- Menyertakan file CSS eksternal untuk memberikan gaya pada halaman -->
 </head>
 
 <body>
@@ -141,7 +141,7 @@
                 <?php endforeach; ?>
             </table>
         </div>
-
+        
         <a href="#" onclick="window.print()">Print</a>
         <!-- Tautan untuk mencetak halaman, dengan fungsi JavaScript untuk memicu aksi cetak -->
 
@@ -151,5 +151,55 @@
         <a href="index.php">Kembali</a>
         <!-- Tautan untuk kembali ke halaman utama -->
     </center>
+
+    <!-- print -->
+     <!-- berguna saat user melakukan print -->
+    <div class="receipt struk-container ">
+        <h3>Struk Bukti Pembayaran</h3>
+        
+        <div class="detail">
+            <span>No:</span>
+            <div class="value"><?= $row["paymentId"]; ?></div>
+        </div>
+        <div class="detail">
+            <span>NIM:</span>
+            <div class="value"><?= $row["nim"]; ?></div>
+        </div>
+        <div class="detail">
+            <span>Nama Mahasiswa:</span>
+            <div class="value"><?= $row["name"]; ?></div>
+        </div>
+        <div class="detail">
+            <span>Tahun & Semester:</span>
+            <div class="value"><?= $row["year"] . ' - ' . $row["semester"]; ?></div>
+        </div>
+        <div class="detail">
+            <span>Fakultas:</span>
+            <div class="value"><?= $row["faculty"]; ?></div>
+        </div>
+        <div class="detail">
+            <span>Metode Pembayaran:</span>
+            <div class="value"><?= $row["method_name"]; ?></div>
+        </div>
+        <div class="detail">
+            <span>Tanggal Pembayaran:</span>
+            <div class="value"><?= date("l, F j, Y", strtotime($row["paid_date"])); ?></div>
+        </div>
+        <div class="detail">
+            <span>Jumlah Pembayaran:</span>
+            <div class="value">Rp. <?= number_format($row["amount_paid"]); ?></div>
+        </div>
+        <div class="detail">
+            <span>Status:</span>
+            <div class="value"><?= $row["status"]; ?></div>
+        </div>
+
+        <hr>
+
+        <div class="total">
+            Total: Rp. <?= number_format($row["amount_paid"]); ?>
+        </div>
+    </div>
+
 </body>
 </html>

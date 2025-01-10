@@ -22,7 +22,7 @@ if (isset($_POST["submit"])) {
     }
 }
 
-$ukt = query("SELECT ukt.*, ukt.id as ukt_id, students.nim, students.name, academic_years.year, academic_years.semester FROM ukt INNER JOIN academic_years ON ukt.academic_year_id = academic_years.id INNER JOIN students ON ukt.student_id = students.id WHERE students.nim = $nim ");
+$ukt = query("SELECT ukt.*, ukt.id as ukt_id, students.nim, students.name, academic_years.year, academic_years.semester FROM ukt INNER JOIN academic_years ON ukt.academic_year_id = academic_years.id INNER JOIN students ON ukt.student_id = students.id WHERE ukt.id = $ukt_id ");
 $student = query("SELECT * FROM students INNER JOIN programs on students.program_id = programs.id WHERE nim = $nim");
 $payment_methods = query("SELECT * FROM payment_methods");
 

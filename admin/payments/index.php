@@ -25,7 +25,8 @@
                 INNER JOIN 
                     students ON ukt.student_id = students.id  -- Menambahkan join ke tabel students
                 INNER JOIN 
-                    academic_years ON ukt.academic_year_id = academic_years.id  -- Menambahkan join ke tabel academic_years
+                    academic_years ON ukt.academic_year_id = academic_years.id 
+                ORDER BY payments.id DESC -- Menambahkan join ke tabel academic_years
                 ");
 
 

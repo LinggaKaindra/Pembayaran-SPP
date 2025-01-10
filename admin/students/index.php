@@ -8,7 +8,7 @@
    
     require '../../functions.php';
 
-    $siswa = query("SELECT students.*, students.id as studentId, programs.*
+    $siswa = query("SELECT students.*, students.id as studentId, students.name as studentName, programs.*
                 FROM students
                 INNER JOIN programs ON students.program_id = programs.id;
             ");
@@ -49,7 +49,7 @@
             <tr>
                 <td><?= $i; ?></td>
                 <td><?= $row["nim"]; ?></td>
-                <td><?= $row["name"]; ?></td>
+                <td><?= $row["studentName"]; ?></td>
                 <td><?= $row["email"]; ?></td>
                 <td><?= $row["phone"]; ?></td> 
                 <td><?= $row["faculty"]; ?></td> 
