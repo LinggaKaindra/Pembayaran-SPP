@@ -142,13 +142,13 @@
             </table>
         </div>
 
-        <a href="#" class="btn-print" onclick="window.print()">Print</a>
+        <a href="#" onclick="window.print()">Print</a>
         <!-- Tautan untuk mencetak halaman, dengan fungsi JavaScript untuk memicu aksi cetak -->
 
         <span> || </span>
         <!-- Elemen <span> sebagai pemisah visual antar tautan -->
 
-        <a href="index.php" class="btn-back">Kembali</a>
+        <a href="index.php">Kembali</a>
         <!-- Tautan untuk kembali ke halaman utama -->
     </center>
 </body>
