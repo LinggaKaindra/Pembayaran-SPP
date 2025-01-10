@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
     <!-- Menyertakan file CSS eksternal untuk memberikan gaya pada tabel dan elemen lainnya -->
 
-    <title>Document</title>
+    <title>Data Prodi</title>
     <!-- Judul halaman yang akan tampil di tab browser -->
 </head>
 
