@@ -42,7 +42,7 @@ $payment_methods = query("SELECT * FROM payment_methods");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Mengatur agar halaman dapat disesuaikan dengan lebar layar perangkat, penting untuk desain responsif -->
     
-    <title>Document</title>
+    <title>Tambah Data Registrasi Pembayaran</title>
     <!-- Judul halaman yang akan ditampilkan di tab browser -->
     
     <link rel="stylesheet" href="../../Assets/CSS/LoginPetugasSiswaStyle.css">
