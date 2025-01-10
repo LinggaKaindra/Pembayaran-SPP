@@ -28,7 +28,7 @@ if (isset($_POST["submit"])) {
     <!-- Mengatur agar halaman responsif dengan lebar sesuai perangkat pengguna -->
     <link rel="stylesheet" href="../../Assets/CSS/LoginPetugasSiswaStyle.css">
     <!-- Menyisipkan file CSS eksternal untuk memberikan gaya pada halaman -->
-    <title>Registrasi Petugas</title>
+    <title>Registrasi Pengguna</title>
     <!-- Menentukan judul halaman yang akan ditampilkan di tab browser -->
 </head>
 
