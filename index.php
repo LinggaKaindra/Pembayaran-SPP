@@ -28,7 +28,7 @@
                 <!-- <div class="input-area">: Membungkus elemen input. -->
                 <a href="admin/loginPetugas.php">
                     <!-- <a href="admin/loginPetugas.php">: Tautan untuk mengarahkan pengguna ke halaman login petugas. -->
-                    <input type="button" value="Petugas">
+                    <input type="submit" value="Petugas">
                     <!-- <input type="button">: Tombol yang berfungsi sebagai pemicu tautan. -->
                 </a>
             </div>
@@ -40,7 +40,7 @@
                 <!-- <div class="input-area">: Container untuk elemen input dalam opsi ini. -->
                 <a href="siswa/index.php">
                     <!-- <a href="siswa/loginSiswa.php">: Tautan untuk mengarahkan pengguna ke halaman login siswa. -->
-                    <input type="button" value="Siswa">
+                    <input type="submit" value="Siswa">
                     <!-- <input type="button">: Tombol yang berfungsi sebagai pemicu tautan. -->
                 </a>
             </div>
