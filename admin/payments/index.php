@@ -49,7 +49,7 @@
     <link rel="stylesheet" href="../../Assets/CSS/tablestyle.css">
     <!-- Menyertakan file CSS eksternal untuk memberikan gaya pada halaman -->
     
-    <title>Document</title>
+    <title>Data pembayaran</title>
     <!-- Judul halaman yang akan ditampilkan di tab browser -->
 </head>
 
