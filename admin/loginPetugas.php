@@ -1,23 +1,35 @@
 <?php 
 session_start();
-// var_dump($_SESSION);
 $conn = mysqli_connect("localhost", "root", "", "spp_2");
 
 if (isset($_POST["submit"])) {
     $email = $_POST["email"];
-    $password = $_POST["password"]; // Password mentah dari form
+    $password = $_POST["password"]; 
+    $captcha = $_POST['g-recaptcha-response'] ?? false;
 
-    // Ambil pengguna berdasarkan username
+    if (!$captcha) {
+        echo "<p style='color: red;'>Captcha tidak ada, mohon coba lagi.</p>";
+        exit;
+    }
+
+    $secret = '6LdyGX4rAAAAAL2pDGuF-RmXc_NeuIqat4tITUX6'; // ini secret key
+    $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$captcha&remoteip=" . $_SERVER['REMOTE_ADDR']);
+    $responseKeys = json_decode($response);
+
+    if (!$responseKeys->success || $responseKeys->score < 0.5) {
+        echo "<p style='color: red;'>Captcha gagal/divalidasi rendah. Akses ditolak.</p>";
+        exit;
+    }
+
+
+
     $sql = "SELECT * FROM users WHERE email = '$email'";
     $result = mysqli_query($conn, $sql);
     
-    // Periksa apakah username ditemukan
     if (mysqli_num_rows($result) > 0) {
         $row = mysqli_fetch_assoc($result);
 
-        // Verifikasi password
         if (password_verify($password, $row["password"])) {
-            // Cek role untuk redirect
             if ($row["role"] == 'admin') {
                 $_SESSION['role'] = $row["role"];
                 $_SESSION['username'] = $row["username"];
@@ -34,15 +46,12 @@ if (isset($_POST["submit"])) {
                 exit;
             }
         } else {
-            // JS jika password salah akan menunjukan alert
             echo "<script>alert('Password salah!')</script>";
         }
     } else {
-      // JS jika email tidak ada akan menunjukan alert
         echo "<script>alert('Email tidak ditemukan !')</script>";
     }
 }
-
 
 
 ?>
@@ -50,51 +59,45 @@ if (isset($_POST["submit"])) {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Deklarasi dokumen HTML5 dan bahasa dokumen -->
     <meta charset="UTF-8">
-    <!-- Menentukan karakter encoding dokumen -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Memastikan kompatibilitas terbaik dengan browser Internet Explorer -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Menyesuaikan tampilan dengan ukuran layar perangkat -->
     <link rel="stylesheet" href="../Assets/CSS/LoginPetugasSiswaStyle.css">
-    <!-- Menghubungkan file CSS eksternal untuk styling -->
     <title>Login Petugas</title>
-    <!-- Menentukan judul halaman -->
 </head>
 <body>
       <div class="wrapper">
-        <!-- Kontainer utama untuk membungkus seluruh elemen -->
         <header>Halaman Login Petugas</header>
-        <!-- Header untuk memberikan judul halaman -->
         <form action="" method="post">
-          <!-- Formulir untuk login petugas -->
+              <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
+              <input type="hidden" name="action" value="validate_captcha">
           <div class="field email">
-            <!-- Div untuk input email -->
             <div class="input-area">
               <input type="email" name="email" id="email" placeholder="Email">
-              <!-- Input untuk alamat email dengan placeholder -->
             </div>
           </div>
           <div class="field password">
-            <!-- Div untuk input password -->
             <div class="input-area password">
                   <input type="password" name="password" id="password" autocomplete="off" placeholder="Password">
-                  <!-- Input untuk password dengan fitur autocomplete dinonaktifkan -->
                   <button type="button" id="togglePassword" class="toggle-password">👁️</button>
-                  <!-- Tombol untuk menampilkan/menyembunyikan password -->
               </div>
           </div>
           <input type="submit" name="submit" value="Kirim">
-          <!-- Tombol untuk mengirim formulir -->
           <a href="regisPetugas.php">Belum punya akun?</a> 
-          <!-- Link menuju halaman registrasi petugas -->
           || 
           <a href="../index.php">Kembali?</a>
-          <!-- Link kembali ke halaman utama -->
         </form>
       </div>
       <script src="../Assets/JS/togglePassword.js"></script>
-      <!-- Menghubungkan file JS eksternal untuk fitur toggle password -->
+
+      <script src="https://www.google.com/recaptcha/api.js?render=6LdyGX4rAAAAAPUOospwmWLfhlBhWjY2-O2wC2zC"></script>
+     <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LdyGX4rAAAAAPUOospwmWLfhlBhWjY2-O2wC2zC', {action: 'validate_captcha'}).then(function(token) {
+                document.getElementById('g-recaptcha-response').value = token;
+            });
+        });
+    </script>
+
 </body>
 </html>

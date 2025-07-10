@@ -1,5 +1,11 @@
 #Project Pembayaran UKT
 
+anggota 
+Komang Bagus Putra Satvika (230030050)
+I Gede Tio Mahesa Diputra (230030112)
+Made Linggayasa Kaindra Mulya (230030125)
+Made Adriel Stanley Darma Putra (230030499)
+
 tb_user
 untuk menampung data petugas dan admin
 

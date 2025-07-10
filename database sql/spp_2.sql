@@ -23,7 +23,7 @@ CREATE TABLE `payment_methods` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `payments` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -40,7 +40,7 @@ CREATE TABLE `payments` (
   KEY `method_id` (`method_id`),
   CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`ukt_id`) REFERENCES `ukt` (`id`),
   CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`method_id`) REFERENCES `payment_methods` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `programs` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -49,7 +49,7 @@ CREATE TABLE `programs` (
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `students` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -65,7 +65,7 @@ CREATE TABLE `students` (
   UNIQUE KEY `nim` (`nim`),
   KEY `program_id` (`program_id`),
   CONSTRAINT `students_ibfk_1` FOREIGN KEY (`program_id`) REFERENCES `programs` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `ukt` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -80,7 +80,7 @@ CREATE TABLE `ukt` (
   KEY `academic_year_id` (`academic_year_id`),
   CONSTRAINT `ukt_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `students` (`id`),
   CONSTRAINT `ukt_ibfk_2` FOREIGN KEY (`academic_year_id`) REFERENCES `academic_years` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 CREATE TABLE `users` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -93,7 +93,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `academic_years` (`id`, `year`, `semester`, `status`, `created_at`, `updated_at`) VALUES
 (1, '2023', '1', 'active', '2024-12-27 02:03:53', '2024-12-27 02:03:53');
@@ -123,7 +123,9 @@ INSERT INTO `payments` (`id`, `ukt_id`, `method_id`, `paid_date`, `amount_paid`,
 INSERT INTO `payments` (`id`, `ukt_id`, `method_id`, `paid_date`, `amount_paid`, `status`, `created_at`, `updated_at`, `user_id`) VALUES
 (21, 6, 3, '2024-12-26 20:05:11', '1000000.00', 'confirmed', '2024-12-27 04:05:11', '2024-12-27 04:05:11', NULL);
 INSERT INTO `payments` (`id`, `ukt_id`, `method_id`, `paid_date`, `amount_paid`, `status`, `created_at`, `updated_at`, `user_id`) VALUES
-(22, 7, 1, '2024-12-26 20:09:44', '1500000.00', 'failed', '2024-12-27 04:09:44', '2024-12-27 04:14:23', 3);
+(22, 7, 1, '2024-12-26 20:09:44', '1500000.00', 'failed', '2024-12-27 04:09:44', '2024-12-27 04:14:23', 3),
+(25, 11, 1, '2025-01-10 18:05:43', '123.00', 'confirmed', '2025-01-11 02:05:43', '2025-01-11 02:05:43', 3),
+(26, 12, 3, '2025-01-11 01:11:11', '12000000.00', 'confirmed', '2025-01-11 09:11:11', '2025-01-11 09:11:11', 1);
 
 INSERT INTO `programs` (`id`, `name`, `faculty`, `created_at`, `updated_at`) VALUES
 (1, 'SI', 'Sistem Informasi', '2024-12-27 01:51:35', '2024-12-27 02:22:46');
@@ -143,20 +145,23 @@ INSERT INTO `students` (`id`, `nim`, `name`, `phone`, `program_id`, `created_at`
 (3, '230030003', 'Komang Ipsum', '081287182', 1, '2024-12-27 04:01:37', '2024-12-27 04:17:23', '230030003@gmail.com', '$2y$10$i7/zMMsK1geZdtMsMnfmr.7FX.nQS3TxZfZQiJMQmj0A8Szjce4w2');
 
 INSERT INTO `ukt` (`id`, `student_id`, `academic_year_id`, `amount`, `status`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1500000, 'unpaid', '2024-12-27 02:08:15', '2024-12-27 03:50:58');
+(1, 1, 5, 15000000, 'unpaid', '2024-12-27 02:08:15', '2025-01-11 01:29:30');
 INSERT INTO `ukt` (`id`, `student_id`, `academic_year_id`, `amount`, `status`, `created_at`, `updated_at`) VALUES
-(3, 2, 1, 1500000, 'unpaid', '2024-12-27 02:22:02', '2024-12-27 03:49:18');
+(3, 3, 9, 3000000, 'unpaid', '2024-12-27 02:22:02', '2025-01-11 02:05:14');
 INSERT INTO `ukt` (`id`, `student_id`, `academic_year_id`, `amount`, `status`, `created_at`, `updated_at`) VALUES
 (4, 2, 2, 1500000, 'unpaid', '2024-12-27 02:23:26', '2024-12-27 03:36:43');
 INSERT INTO `ukt` (`id`, `student_id`, `academic_year_id`, `amount`, `status`, `created_at`, `updated_at`) VALUES
 (5, 1, 2, 1500000, 'unpaid', '2024-12-27 02:24:29', '2024-12-27 03:50:42'),
-(6, 3, 1, 1000000, 'paid', '2024-12-27 04:03:33', '2024-12-27 04:05:11'),
-(7, 1, 2, 1000000, 'unpaid', '2024-12-27 04:03:43', '2024-12-27 04:13:44');
+(6, 3, 1, 1000000, 'unpaid', '2024-12-27 04:03:33', '2025-01-11 02:05:14'),
+(7, 1, 2, 1000000, 'unpaid', '2024-12-27 04:03:43', '2024-12-27 04:13:44'),
+(8, 1, 1, 15000000, 'unpaid', '2025-01-11 01:29:05', '2025-01-11 01:29:05'),
+(11, 1, 1, 123, 'paid', '2025-01-11 01:55:52', '2025-01-11 02:05:43'),
+(12, 3, 3, 12000000, 'paid', '2025-01-11 09:10:20', '2025-01-11 09:11:11');
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'admin@gmail.com', '$2y$10$CtXKMy.Z5yk0YI8wyLMuy.Nb9.e3HURja5z/L8xZSqnDeEI9km6Te', 'admin', '2024-12-27 01:05:15', '2024-12-27 01:05:40');
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
-(3, 'petugas1', 'petugas1@gmail.com', '$2y$10$13F9XenKxSkilIriZDMUOedD3/RSV8qrKXF1tKb8x0FhceyTQwuji', 'petugas', '2024-12-27 01:27:43', '2024-12-27 01:27:43');
+(3, 'petugas1', 'petugas1@gmail.com', '$2y$10$WPAWCFd8krABSn6beQGhz.IFFBfFgYYrcysfjBxv/BHUoP1zeG612', 'petugas', '2024-12-27 01:27:43', '2025-01-11 09:13:12');
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `role`, `created_at`, `updated_at`) VALUES
 (4, 'petugas 2', 'petugas2@gmail.com', '$2y$10$gTi4wMouaBVazKY1nvlcF.BaG/sPtYDohqM9KiLi2Wb5r7oA/qn8.', 'petugas', '2024-12-27 01:29:40', '2024-12-27 03:55:26');
 
